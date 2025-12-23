@@ -107,7 +107,7 @@ export default function HomePage() {
 
                 <div className="text-foreground leading-relaxed text-xs md:text-[13px]">
                   <strong className="font-semibold">
-                    기술은 결국 현장의 문제를 해결하기 위한 수단이라는 생각으로, 지속 가능한 구조와 명확한 소통을 기반의
+                    기술은 결국 현장의 문제를 해결하기 위한 수단이라는 생각으로, 지속 가능한 구조와 명확한 소통 기반의
                     개발을 이어나가겠습니다.
                   </strong>
                 </div>
