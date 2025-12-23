@@ -10,10 +10,10 @@ export default function HonorsParkingPage() {
   }, [])
 
   return (
-    <>
-      <PortfolioNavigation />
-      <main className="min-h-screen bg-background pt-14">
-        <div className="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div className="page-zoom">
+    <PortfolioNavigation />
+    <main className="min-h-screen bg-background pt-14">
+      <div className="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
           <Link href="/#portfolio" className="text-blue-600 hover:text-blue-800 text-sm mb-8 inline-block">
             ← 홈으로 돌아가기
           </Link>
@@ -365,6 +365,6 @@ export default function HonorsParkingPage() {
           </section>
         </div>
       </main>
-    </>
+    </div>
   )
 }

@@ -12,7 +12,7 @@ export default function DineQPage() {
   }, [])
 
   return (
-    <>
+    <div className="page-zoom">
       <PortfolioNavigation />
       <main className="min-h-screen bg-background pt-14">
         <div className="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -301,6 +301,6 @@ export default function DineQPage() {
           </section>
         </div>
       </main>
-    </>
+    </div>
   )
 }
