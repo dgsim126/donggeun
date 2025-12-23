@@ -7,16 +7,15 @@ import { LuMail, LuPhone, LuMapPin, LuGithub } from "react-icons/lu"
 
 export default function HomePage() {
   return (
-    // ✅ 150% 고정 확대
-    <main className="min-h-screen" style={{ zoom: 1.5 }}>
+    // ✅ zoom은 style이 아니라 class로 통일
+    <main className="min-h-screen page-zoom">
       <Navigation />
 
       <div className="pt-12 sm:pt-14">
         {/* Page 1: Hero */}
         <section
           id="hero"
-          // ✅ zoom(1.5)일 때 “화면 1장” 높이 보정: 100vh / 1.5
-          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100vh/1.5)] flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-background"
+          className="vh-section scroll-mt-12 sm:scroll-mt-14 justify-center px-4 sm:px-6 lg:px-8 bg-background"
         >
           <div className="max-w-5xl w-full">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-balance leading-tight">
@@ -30,7 +29,7 @@ export default function HomePage() {
         {/* Page 2: 자기소개 */}
         <section
           id="about"
-          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100vh/1.5)] flex items-center px-4 sm:px-6 lg:px-8 py-8 bg-secondary/30"
+          className="vh-section scroll-mt-12 sm:scroll-mt-14 px-4 sm:px-6 lg:px-8 py-8 bg-secondary/30"
         >
           <div className="max-w-5xl mx-auto w-full">
             <div className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-10">
@@ -46,7 +45,6 @@ export default function HomePage() {
               </div>
 
               {/* RIGHT : 텍스트 (줄바꿈 절대 수정 안 함) */}
-              {/* ✅ p 안에 div 넣으면 레이아웃 깨짐 → div로 교체 (줄바꿈은 그대로 유지) */}
               <div className="space-y-2">
                 <div className="text-foreground leading-relaxed text-xs md:text-[13px]">
                   안녕하세요.{"  "}
@@ -114,7 +112,6 @@ export default function HomePage() {
 
               {/* CONTACT : 두 칼럼 전체 폭 */}
               <div className="md:col-span-2 mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                {/* Email */}
                 <div
                   className="group rounded-xl border border-border bg-background/70 p-4 text-center hover:bg-background transition overflow-hidden"
                   title="dgsim126@gmail.com"
@@ -124,7 +121,6 @@ export default function HomePage() {
                   <p className="mt-1 text-[10px] md:text-[11px] text-muted-foreground truncate">dgsim126@gmail.com</p>
                 </div>
 
-                {/* Phone */}
                 <div
                   className="group rounded-xl border border-border bg-background/70 p-4 text-center hover:bg-background transition overflow-hidden"
                   title="010-7758-9420"
@@ -134,7 +130,6 @@ export default function HomePage() {
                   <p className="mt-1 text-[10px] md:text-[11px] text-muted-foreground">010-7758-9420</p>
                 </div>
 
-                {/* Address */}
                 <div
                   className="rounded-xl border border-border bg-background/70 p-4 text-center overflow-hidden"
                   title="경기도 용인시 기흥구 중부대로 375 기흥역롯데캐슬스카이"
@@ -146,7 +141,6 @@ export default function HomePage() {
                   </p>
                 </div>
 
-                {/* GitHub */}
                 <div
                   className="group rounded-xl border border-border bg-background/70 p-4 text-center hover:bg-background transition overflow-hidden"
                   title="github.com/dgsim126"
@@ -163,11 +157,10 @@ export default function HomePage() {
         {/* Page 3: 역량 */}
         <section
           id="capabilities"
-          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100vh/1.5)] flex items-center px-4 sm:px-6 lg:px-8 py-8 bg-background"
+          className="vh-section scroll-mt-12 sm:scroll-mt-14 px-4 sm:px-6 lg:px-8 py-8 bg-background"
         >
           <div className="max-w-5xl mx-auto w-full">
             <div className="grid lg:grid-cols-[1fr_320px] gap-6 lg:gap-10">
-              {/* Left column: Capabilities */}
               <div className="space-y-3">
                 <div>
                   <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">[실서비스 운영 경험]</h3>
@@ -216,7 +209,6 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Right column: Tech Badges */}
               <div>
                 <h3 className="text-xs md:text-sm font-bold mb-2 text-foreground">기술 스택</h3>
                 <div className="flex flex-wrap gap-1.5">
@@ -259,9 +251,9 @@ export default function HomePage() {
         {/* Page 4: 정보 */}
         <section
           id="info"
-          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100vh/1.5)] flex items-center px-4 sm:px-6 lg:px-8 py-8 bg-secondary/30"
+          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100svh-3.5rem)] flex items-center px-4 sm:px-6 lg:px-8 py-8 bg-secondary/30"
         >
-          <div className="max-w-5xl mx-auto w-full">
+          <div className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto w-full">
             <div className="grid md:grid-cols-2 gap-4 mb-4">
               <div className="border-2 border-border rounded-xl p-4 bg-background/80 shadow-sm">
                 <h3 className="text-sm md:text-base font-bold mb-3 text-foreground">학력</h3>
@@ -282,15 +274,21 @@ export default function HomePage() {
                 <div className="space-y-2 text-foreground leading-relaxed">
                   <div>
                     <p className="font-semibold text-[11px] md:text-xs">삼성소프트웨어아카데미(SSAFY) (2025.07~)</p>
-                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">삼성소프트웨어아카데미 과정 수료 중</p>
+                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
+                      삼성소프트웨어아카데미 과정 수료 중
+                    </p>
                   </div>
                   <div>
                     <p className="font-semibold text-[11px] md:text-xs">멋쟁이사자처럼(2024.03~2024.12) 동아리</p>
-                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">멋쟁이사자처럼 대학 12기 (백앤드)</p>
+                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
+                      멋쟁이사자처럼 대학 12기 (백앤드)
+                    </p>
                   </div>
                   <div>
                     <p className="font-semibold text-[11px] md:text-xs">언더독레볼루션(2024.03~2024.12) 동아리</p>
-                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">교내 개발 및 창업 동아리 언더독레볼루션 운영진</p>
+                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
+                      교내 개발 및 창업 동아리 언더독레볼루션 운영진
+                    </p>
                   </div>
                 </div>
               </div>
@@ -312,7 +310,9 @@ export default function HomePage() {
                 <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
                   <span className="text-muted-foreground font-medium">2025.11</span>
                   <span className="font-semibold">TOPCIT 650점</span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">정보통신기획평가원</span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
+                    정보통신기획평가원
+                  </span>
                 </div>
 
                 <div className="border-t border-border/60 my-1" />
@@ -320,7 +320,9 @@ export default function HomePage() {
                 <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
                   <span className="text-muted-foreground font-medium">2025.11</span>
                   <span className="font-semibold">데이터분석준전문가(ADsP)</span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">한국데이터베이스진흥원</span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
+                    한국데이터베이스진흥원
+                  </span>
                 </div>
 
                 <div className="border-t border-border/60 my-1" />
@@ -360,7 +362,9 @@ export default function HomePage() {
                 <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
                   <span className="text-muted-foreground font-medium">2024.09</span>
                   <span className="font-semibold">SQL개발자(SQLD자격)</span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">한국데이터베이스진흥센터</span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
+                    한국데이터베이스진흥센터
+                  </span>
                 </div>
 
                 <div className="border-t border-border/60 my-1" />
@@ -378,9 +382,9 @@ export default function HomePage() {
         {/* Page 5: 포트폴리오 */}
         <section
           id="portfolio"
-          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100vh/1.5)] py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-background flex items-center"
+          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100svh-3.5rem)] py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-background flex items-center"
         >
-          <div className="max-w-5xl mx-auto w-full">
+          <div className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto w-full">
             <h2 className="text-xl md:text-2xl font-bold mb-6 text-foreground">프로젝트</h2>
 
             <div className="grid md:grid-cols-2 gap-5 mb-10">
@@ -507,7 +511,12 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="w-full md:w-36 h-36 rounded-lg overflow-hidden border border-border flex-shrink-0 bg-muted">
-                  <img src="/images/uniweb_main.png" alt="UniWeb 프로젝트 이미지" className="w-full h-full object-cover" loading="lazy" />
+                  <img
+                    src="/images/uniweb_main.png"
+                    alt="UniWeb 프로젝트 이미지"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </div>

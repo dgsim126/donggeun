@@ -39,6 +39,10 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* ✅ nav 높이 + 기본 zoom 변수 */
+  --nav-h: 56px;
+  --z: 1;
 }
 
 .dark {
@@ -119,19 +123,14 @@
 }
 
 /* =========================
-   ✅ Zoom / Section Height Fix
-   - page 전체에 zoom 적용
-   - 각 섹션은 zoom을 고려한 "한 화면" 높이로 보정
-   - 네비게이션 높이는 56px(=3.5rem)로 가정
+   ✅ Zoom + “한 화면” 섹션 클래스
    ========================= */
 
-/* 원하는 고정 배율(1.5) */
 .page-zoom {
   --z: 1.5;
   zoom: var(--z);
 }
 
-/* ✅ zoom 미지원 브라우저 대비 (transform fallback) */
 @supports not (zoom: 1) {
   .page-zoom {
     transform: scale(var(--z));
@@ -140,13 +139,20 @@
   }
 }
 
-/* ✅ 네비게이션(고정 헤더) 높이만큼 빼고, zoom 보정까지 포함 */
-:root {
-  --nav-h: 56px; /* 네 Navigation 실제 높이에 맞춰 48~72px 사이로 조절 */
-}
-
+/* ✅ 기본은 무조건 중앙 정렬 (세로 길 때 포함) */
 .vh-section {
   min-height: calc((100vh - var(--nav-h)) / var(--z));
+  display: flex;
+  align-items: center;
+}
+
+/* ✅ "세로가 짧을 때만" 위로 당기기 (가로 비율로 판단하지 않음) */
+@media (max-height: 820px) {
+  .vh-section {
+    align-items: flex-start;
+    padding-top: calc(72px / var(--z));
+    padding-bottom: calc(40px / var(--z));
+  }
 }
 
 /* ========================= */
@@ -158,7 +164,6 @@
   body {
     @apply bg-background text-foreground;
   }
-  /* Added link styling with subtle blue color */
   a {
     @apply text-link hover:underline;
   }

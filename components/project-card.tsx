@@ -29,8 +29,8 @@ export function ProjectCard({ title, summary, href, large = false, imageSrc, ima
           )}
         </div>
 
-        <div className="p-6">
-          <h3 className="text-xl font-bold mb-2 text-foreground">{title}</h3>
+        <div className="p-4 sm:p-6">
+          <h3 className="text-lg sm:text-xl font-bold mb-2 text-foreground">{title}</h3>
           <p className="text-sm text-muted-foreground leading-relaxed">{summary}</p>
         </div>
       </Card>

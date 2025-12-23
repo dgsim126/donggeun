@@ -38,16 +38,14 @@ export function PortfolioNavigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 h-12 sm:h-14">
           {sections.map((section) => (
             <button
               key={section.id}
               onClick={() => scrollToSection(section.id)}
               className={`text-xs sm:text-sm font-medium transition-colors px-2 sm:px-3 py-1 rounded ${
-                activeSection === section.id
-                  ? "text-blue-600 bg-blue-50"
-                  : "text-muted-foreground hover:text-foreground"
+                activeSection === section.id ? "text-blue-600 bg-blue-50" : "text-muted-foreground hover:text-foreground"
               }`}
             >
               {section.label}
