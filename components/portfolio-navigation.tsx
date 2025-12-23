@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react"
 
 const sections = [
-  { id: "overview", label: "Service Overview" },
-  { id: "role", label: "Role & Contribution" },
-  { id: "tech", label: "Tech Stack" },
-  { id: "challenges", label: "Challenges & Solutions" },
+  { id: "overview", label: "서비스 설명" },
+  { id: "role", label: "역할 및 기여" },
+  { id: "tech", label: "기술" },
+  { id: "challenges", label: "문제 및 해결" },
 ]
 
 export function PortfolioNavigation() {

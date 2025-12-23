@@ -23,7 +23,7 @@ export default function HonorsParkingPage() {
             <div className="md:col-span-2">
               <h1 className="text-4xl font-bold mb-4">HonorsParking</h1>
               <p className="text-lg font-semibold mb-4 leading-relaxed">
-                주차장 관제 기업과 연계하여 차량 입·출차 정보와 주차 요금을 실시간으로 조회할 수 있는 모바일 통합 주차
+                (주)아너스코리아와 연계하여 차량 입·출차 정보와 주차 요금을 실시간으로 조회할 수 있는 모바일 통합 주차
                 관리 시스템
               </p>
               <p className="text-muted-foreground leading-relaxed">
@@ -65,7 +65,7 @@ export default function HonorsParkingPage() {
 
           {/* SECTION 2: SERVICE OVERVIEW */}
           <section id="overview" className="mb-12 bg-gray-50 p-8 rounded-lg scroll-mt-16">
-            <h2 className="text-2xl font-bold mb-6">Service Overview</h2>
+            <h2 className="text-2xl font-bold mb-6">서비스 설명</h2>
             <p className="mb-6 text-muted-foreground leading-relaxed">
               HonorsParking은 주차장 관제 시스템과 연동되어 차량 입·출차 이벤트를 실시간으로 처리하고, 요금 계산과
               알림을 사용자에게 제공하는 통합 주차 관리 서비스입니다.
@@ -112,7 +112,7 @@ export default function HonorsParkingPage() {
 
           {/* SECTION 3: ROLE & CONTRIBUTION */}
           <section id="role" className="mb-12 bg-white p-8 rounded-lg scroll-mt-16">
-            <h2 className="text-2xl font-bold mb-6">Role & Contribution</h2>
+            <h2 className="text-2xl font-bold mb-6">역할 및 기여</h2>
 
             <div className="mb-8 border-l-4 border-blue-500 pl-6">
               <h3 className="text-xl font-semibold mb-4">기획 및 소통 역할</h3>
@@ -120,14 +120,14 @@ export default function HonorsParkingPage() {
                 <div>
                   <p className="font-semibold text-foreground mb-2">• 운영 환경 분석 및 정책 반영</p>
                   <p className="ml-4">
-                    외부 주차장 DB(MS-SQL)의 구조를 파악하고 연동 방식 협의. 입·출차 데이터 지연, 중복 이벤트 발생 등
+                    (주)아너스코리아 DB(MS-SQL)의 구조를 파악하고 연동 방식 협의. 입·출차 데이터 지연, 중복 이벤트 발생 등
                     실제 운영 중 발생하는 문제를 수집해 로직 개선
                   </p>
                 </div>
                 <div>
                   <p className="font-semibold text-foreground mb-2">• 서비스 운영 커뮤니케이션</p>
                   <p className="ml-4">
-                    서버 업데이트 및 배포 일정 조율. 사업자 및 실사용자 피드백 수집 후 실제 운영에 반영. 앱(WebView)
+                    서버 업데이트 및 배포 일정 조율. 사업자 피드백 수집 후 실제 운영에 반영. 앱(WebView)
                     환경 제약을 고려한 로그인 흐름 설계 논의
                   </p>
                 </div>
@@ -172,7 +172,7 @@ export default function HonorsParkingPage() {
 
           {/* SECTION 4: TECH STACK */}
           <section id="tech" className="mb-12 bg-gray-50 p-8 rounded-lg scroll-mt-16">
-            <h2 className="text-2xl font-bold mb-6">Tech Stack</h2>
+            <h2 className="text-2xl font-bold mb-6">기술</h2>
             <div className="space-y-6 mb-8">
               <div className="border rounded-lg p-6 bg-white shadow-sm">
                 <h3 className="font-semibold mb-3">Backend</h3>
@@ -228,7 +228,7 @@ export default function HonorsParkingPage() {
 
           {/* SECTION 5: CHALLENGES & SOLUTIONS */}
           <section id="challenges" className="mb-12 bg-white p-8 rounded-lg scroll-mt-16">
-            <h2 className="text-2xl font-bold mb-6">Challenges & Solutions</h2>
+            <h2 className="text-2xl font-bold mb-6">문제 및 해결</h2>
 
             <div className="border-l-4 border-blue-600 pl-6 mb-12">
               <h3 className="text-xl font-semibold mb-4">WebView 환경에서 OAuth2 세션 공유 문제</h3>
@@ -239,12 +239,12 @@ export default function HonorsParkingPage() {
                   모바일 앱(WebView) 환경에서 OAuth2 소셜 로그인을 진행하면 로그인 이후 다음과 같은 문제가 발생했습니다:
                 </p>
                 <ul className="space-y-2 text-muted-foreground ml-4">
-                  <li>• OAuth2 로그인 이후 백엔드 세션이 WebView와 정상적으로 공유되지 않음</li>
-                  <li>• WebView의 쿠키 저장 방식 제약으로 인해 Spring Security의 표준 세션 인증이 동작하지 않음</li>
-                  <li>• 로그인 성공 이후에도 API 요청이 인증되지 않은 사용자로 인식됨</li>
+                  <li>• OAuth2 로그인 이후 클라이언트에게 쿠키가 전달되지 않음(session 전달이 불가)</li>
+                  <li>• Google, Naver, Kako에서 WebView에서의 OAuth2 로그인 요청을 신뢰하지 않음 (공식 가이드 금지)</li>
+                  <li>• OAuth 로그인 후 redirection-uri가 WebView에서 제대로 동작하지 않거나, 앱이 결과를 받지 못함</li>
                 </ul>
                 <p className="mt-4 font-semibold text-foreground">
-                  "일반 웹 환경에서는 발생하지 않는 App-WebView 특유의 인증 문제"
+                  "즉, OAuth2 로그인 성공 시점에 서버에 세션은 생기는데 WebView는 쿠키를 못 받는 문제가 발생"
                 </p>
               </div>
 
@@ -252,25 +252,47 @@ export default function HonorsParkingPage() {
                 <h4 className="text-lg font-bold mb-4 text-blue-600">Solution</h4>
                 <div className="space-y-4">
                   <div className="border rounded-lg p-4 bg-card">
-                    <p className="font-semibold mb-2">1. OAuth2 로그인 성공 시 커스텀 세션 ID 발급</p>
+                    <p className="font-semibold mb-2">1. WebView 환경인 경우, OAuth2 로그인 성공 시 서버에 생성된 sessionId를 암호화하여 클라이언트에게 전달</p>
                     <p className="text-sm text-muted-foreground">
-                      OAuth2 로그인 완료 후 사용자 principal 정보를 기반으로 서버가 세션 ID를 직접 생성하고 Redis에
-                      저장. 해당 세션 ID를 WebView 앱으로 응답 반환
+                      <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• OAuth2 로그인 완료 후 사용자 principal 정보를 기반으로 서버가 세션 ID를 직접 생성하고 Redis에
+                      저장</li>
+                      <li>• 해당 세션 ID를 WebView 앱으로 응답 반환</li>
+                    
+                    </ul>
+
                     </p>
                   </div>
 
                   <div className="border rounded-lg p-4 bg-card">
-                    <p className="font-semibold mb-2">2. 앱에서 모든 API 요청 시 세션 ID 전달</p>
+                    <p className="font-semibold mb-2">2. [커스텀 로그인 API 호출] 전달받은 암호화된 sessionId를 활용하여 다시 서버에게 해당 sessionId를 전달</p>
                     <p className="text-sm text-muted-foreground">
-                      Authorization 헤더 또는 Custom Header 형태로 전달하여 WebView 쿠키 제약을 우회
+                      <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• 서버는 전달받은 sesssionId를 복호화</li>
+                      <li>• Redis(session 저장소)에 해당 세션 존재 여부를 검증</li>
+                    
+                    </ul>
                     </p>
                   </div>
 
                   <div className="border rounded-lg p-4 bg-card">
-                    <p className="font-semibold mb-2">3. 세션 ID 기반 SecurityContext 복원</p>
+                    <p className="font-semibold mb-2">3. 기존 세션을 지우고, 새 세션에 인증을 다시 심기 (세션 회수/ 재발급) </p>
                     <p className="text-sm text-muted-foreground">
-                      Redis에서 인증 정보를 조회하고 SecurityContextHolder에 주입하여 Spring Security 표준 인증 흐름과
-                      연동
+                      <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• 처음 OAuth2로 만들어졌던 기존 세션을 폐기</li>
+                      <li>• 기존 세션의 인증정보를 복원하여 새 세션으로 옮김</li>
+                    
+                    </ul>
+                    </p>
+                  </div>
+
+                  <div className="border rounded-lg p-4 bg-card">
+                    <p className="font-semibold mb-2">4. 새 세션이 만들어졌기에 클라이언트에게 쿠키 전달 </p>
+                    <p className="text-sm text-muted-foreground">
+                      <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• 새 세션이 만들어졌기에 서블릿 컨테이너가 응답에 자동으로 쿠키를 내려줌</li>
+                    
+                    </ul>
                     </p>
                   </div>
                 </div>
@@ -280,8 +302,7 @@ export default function HonorsParkingPage() {
                 <h4 className="text-lg font-bold mb-3 text-green-600">Result</h4>
                 <ul className="space-y-2 text-muted-foreground">
                   <li>✓ WebView 환경에서도 안정적인 소셜 로그인 구현</li>
-                  <li>✓ 인증 실패율 감소로 사용자 CS 및 오류 대폭 감소</li>
-                  <li>✓ iOS / Android 공통 인증 방식으로 통일 가능</li>
+                  <li>✓ 웹 / 앱(WebView) 환경에 구애받지 않고 로그인 가능</li>
                 </ul>
               </div>
             </div>
@@ -335,7 +356,7 @@ export default function HonorsParkingPage() {
               <div>
                 <h4 className="text-lg font-bold mb-3 text-green-600">Result</h4>
                 <ul className="space-y-2 text-muted-foreground">
-                  <li>✓ 대량 이벤트 상황에서도 API 지연이 본 요청에 영향 없음</li>
+                  <li>✓ 대량 이벤트 상황(Expo server에서 많은 요청으로 인해 문제가 발생하는 상황)에서도 이와 상관없이 DB에 안정적으로 값 저장</li>
                   <li>✓ 알림 전달 성공률 및 안정성 대폭 향상</li>
                   <li>✓ 서버 전체 응답 속도 및 신뢰성 개선</li>
                 </ul>

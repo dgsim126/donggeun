@@ -2,7 +2,14 @@
 import { ProjectCard } from "@/components/project-card"
 import { TechBadge } from "@/components/tech-badge"
 import { Navigation } from "@/components/navigation"
-import { FaEnvelope, FaPhone, FaGithub } from "react-icons/fa"
+// import { FaEnvelope, FaPhone, FaGithub } from "react-icons/fa"
+import { 
+  LuMail, 
+  LuPhone, 
+  LuMapPin, 
+  LuGithub 
+} from "react-icons/lu"
+
 
 export default function HomePage() {
   return (
@@ -32,78 +39,145 @@ export default function HomePage() {
         >
           <div className="max-w-5xl mx-auto w-full">
             <div className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-10">
+              {/* LEFT : 사진 */}
               <div className="space-y-4 w-52 mx-auto md:mx-0">
                 <div className="w-52 h-[277px] mx-auto md:mx-0 rounded-lg overflow-hidden border-2 border-border shadow-md bg-muted">
-  <img
-    src="/images/my.png"
-    alt="심동근 증명사진"
-    className="w-full h-full object-cover object-top"
-  />
-</div>
-
-
-
-                <div className="space-y-3 bg-background/50 rounded-lg p-4 border border-border w-52">
-                  <div className="flex items-center gap-3">
-                    <FaEnvelope className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-                    <span className="text-foreground text-xs font-medium break-all">dgsim126@gmail.com</span>
-                  </div>
-                  <div className="border-t border-border/50" />
-                  <div className="flex items-center gap-3">
-                    <FaPhone className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-                    <span className="text-foreground text-xs font-medium">010-7758-9420</span>
-                  </div>
-                  <div className="border-t border-border/50" />
-                  <div className="flex items-center gap-3">
-                    <FaGithub className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-                    <a
-                      href="https://github.com/dgsim126"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-700 text-xs font-medium break-all transition-colors"
-                    >
-                      github.com/dgsim126
-                    </a>
-                  </div>
+                  <img
+                    src="/images/my.png"
+                    alt="심동근 증명사진"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
               </div>
-              {/* </CHANGE> */}
+
+              {/* RIGHT : 텍스트 (줄바꿈 절대 수정 안 함) */}
               <div className="prose max-w-none space-y-2">
                 <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
                   안녕하세요.{"  "}
-                  <strong className="font-semibold">현장의 문제를 기술로 해결하는 서버 개발자 심동근</strong>입니다.
+                  <strong className="font-semibold">
+                    현장의 문제를 기술로 해결하는 서버 개발자 심동근
+                  </strong>
+                  입니다.
                 </p>
+
                 <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
-                  <div> 주점  <span className="text-blue-700 font-semibold">술고래 세종점</span> 에서 운영되는 QR 테이블 주문 서비스를 개발 및 유지보수하며, 서비스 기획 단계부터</div>
-                  <div>매장 사장님과 직접 만나 <strong className="font-semibold">
-                    운영 문제를 함께 정의하고 요구사항을 도출해 기능과 구조에 반영하는 과정
-                  </strong>을 경험했습니다.</div>
-                  
+                  <div>
+                    주점 <span className="text-blue-700 font-semibold">술고래 세종점</span> 에서 운영되는
+                    QR 테이블 주문 서비스를 개발 및 유지보수하며, 서비스 기획 단계부터
+                  </div>
+                  <div>
+                    매장 사장님과 직접 만나{" "}
+                    <strong className="font-semibold">
+                      운영 문제를 함께 정의하고 요구사항을 도출해 기능과 구조에 반영하는 과정
+                    </strong>
+                    을 경험했습니다.
+                  </div>
                 </p>
+
                 <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
-                  <div>그 과정에서 서비스의 기능 자체보다도 매장 운영의 흐름을 방해하지 않는지, 업무가 번거로워지지 않는지</div>
-                  <div> 파악하고 개선하는 것이 더 중요하다는 것을 깨닫게 되었습니다. </div>
+                  <div>
+                    그 과정에서 서비스의 기능 자체보다도 매장 운영의 흐름을 방해하지 않는지,
+                    업무가 번거로워지지 않는지
+                  </div>
+                  <div>파악하고 개선하는 것이 더 중요하다는 것을 깨닫게 되었습니다.</div>
                 </p>
+
                 <p className="text-foreground leading-relaxed text-xs md:text-[13px] mt-8" />
                 <p className="text-foreground leading-relaxed text-xs md:text-[13px] mt-8" />
 
-
                 <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
-                  <div>또한, 주차관제회사 <span className="text-blue-700 rounded font-semibold"> (주)아너스코리아 </span> 와 협업해 <strong className="font-semibold">기존 시스템의 제약 속에서 연동 구조를 설계하며</strong>,</div>
-                  <div>실제 차량의 입·출차 정보와 요금 기록을 앱에서 안정적으로 확인할 수 있는 서버 구조를 구현한 경험이 있습니다.</div>
+                  <div>
+                    또한, 주차관제회사{" "}
+                    <span className="text-blue-700 font-semibold">(주)아너스코리아</span> 와 협업해{" "}
+                    <strong className="font-semibold">
+                      기존 시스템의 제약 속에서 연동 구조를 설계하며
+                    </strong>
+                    ,
+                  </div>
+                  <div>
+                    실제 차량의 입·출차 정보와 요금 기록을 앱에서 안정적으로 확인할 수 있는
+                    서버 구조를 구현한 경험이 있습니다.
+                  </div>
                 </p>
 
                 <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
-                  <div>이를 통해 <strong className="font-semibold">기존 기업 업무의 주요 흐름에 대한 이해와, 여러 이해관계자와 소통하며 업무 기준을 맞추는 것</strong>이 </div>
+                  <div>
+                    이를 통해{" "}
+                    <strong className="font-semibold">
+                      기존 기업 업무의 주요 흐름에 대한 이해와, 여러 이해관계자와 소통하며
+                      업무 기준을 맞추는 것
+                    </strong>
+                    이
+                  </div>
                   <div>무엇보다 우선되어야 한다는 것을 깨닫게 되었습니다.</div>
                 </p>
+
                 <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
-                  <strong className="font-semibold">기술은 결국 현장의 문제를 해결하기 위한 수단이라는 생각으로, 지속 가능한 구조와 명확한 소통을 기반의 개발을 이어나가겠습니다.</strong>
+                  <strong className="font-semibold">
+                    기술은 결국 현장의 문제를 해결하기 위한 수단이라는 생각으로, 지속 가능한
+                    구조와 명확한 소통을 기반의 개발을 이어나가겠습니다.
+                  </strong>
                 </p>
               </div>
+
+              {/* CONTACT : 두 칼럼 전체 폭 */}
+              <div className="md:col-span-2 mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                {/* Email */}
+                <div
+                  className="group rounded-xl border border-border bg-background/70 p-4 text-center hover:bg-background transition overflow-hidden"
+                  title="dgsim126@gmail.com"
+                >
+                  <LuMail className="mx-auto mb-2 h-4 w-4 text-muted-foreground" />
+                  <p className="text-[11px] md:text-xs font-semibold">Email</p>
+                  <p className="mt-1 text-[10px] md:text-[11px] text-muted-foreground truncate">
+                    dgsim126@gmail.com
+                  </p>
+                </div>
+
+                {/* Phone */}
+                <div
+                  className="group rounded-xl border border-border bg-background/70 p-4 text-center hover:bg-background transition overflow-hidden"
+                  title="010-7758-9420"
+                >
+                  <LuPhone className="mx-auto mb-2 h-4 w-4 text-muted-foreground" />
+                  <p className="text-[11px] md:text-xs font-semibold">Phone</p>
+                  <p className="mt-1 text-[10px] md:text-[11px] text-muted-foreground">
+                    010-7758-9420
+                  </p>
+                </div>
+
+                {/* Address */}
+                <div
+                  className="rounded-xl border border-border bg-background/70 p-4 text-center overflow-hidden"
+                  title="경기도 용인시 기흥구 중부대로 375 기흥역롯데캐슬스카이"
+                >
+                  <LuMapPin className="mx-auto mb-2 h-4 w-4 text-muted-foreground" />
+                  <p className="text-[11px] md:text-xs font-semibold">Address</p>
+                  <p className="mt-1 text-[10px] md:text-[11px] text-muted-foreground truncate">
+                    경기도 용인시 기흥구 중부대로 375
+                  </p>
+                </div>
+
+                {/* GitHub */}
+                <div
+                  className="group rounded-xl border border-border bg-background/70 p-4 text-center hover:bg-background transition overflow-hidden"
+                  title="github.com/dgsim126"
+                >
+                  <LuGithub className="mx-auto mb-2 h-4 w-4 text-muted-foreground" />
+                  <p className="text-[11px] md:text-xs font-semibold">GitHub</p>
+                  <p className="mt-1 text-[10px] md:text-[11px] text-muted-foreground truncate">
+                    github.com/dgsim126
+                  </p>
+                </div>
+              </div>
             </div>
+
+
+            
           </div>
         </section>
+
+
 
         {/* Page 3: 역량 */}
         <section

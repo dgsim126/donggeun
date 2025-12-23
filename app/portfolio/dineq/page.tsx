@@ -25,7 +25,7 @@ export default function DineQPage() {
             <div className="md:col-span-2">
               <h1 className="text-4xl font-bold mb-4">DineQ</h1>
               <p className="text-lg font-semibold mb-4 leading-relaxed">
-                실제 주점에서 운영 중이며 누적 1,800건 이상의 주문을 처리한 QR 기반 테이블 주문 서비스
+                실제 주점에서 운영 중이며 누적 2,000건 이상의 주문을 처리한 QR 기반 테이블 주문 서비스
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 DineQ는 오프라인 식당에서 QR 테이블 주문을 지원하는 웹 기반 주문·정산 시스템입니다. 고객은 테이블 QR을
@@ -64,7 +64,7 @@ export default function DineQPage() {
 
           {/* SECTION 2: SERVICE OVERVIEW */}
           <section id="overview" className="mb-12 bg-gray-50 p-8 rounded-lg scroll-mt-16">
-            <h2 className="text-2xl font-bold mb-6">Service Overview</h2>
+            <h2 className="text-2xl font-bold mb-6">서비스 설명</h2>
             <p className="mb-6 text-muted-foreground leading-relaxed">
               DineQ는 오프라인 식당 환경에 최적화된 QR 테이블 주문 시스템입니다.
             </p>
@@ -111,10 +111,10 @@ export default function DineQPage() {
 
           {/* SECTION 3: ROLE & CONTRIBUTION */}
           <section id="role" className="mb-12 bg-white p-8 rounded-lg scroll-mt-16">
-            <h2 className="text-2xl font-bold mb-6">Role & Contribution</h2>
+            <h2 className="text-2xl font-bold mb-6">역할 및 기여</h2>
 
             <div className="mb-8 border-l-4 border-blue-500 pl-6">
-              <h3 className="text-xl font-semibold mb-4">기획 및 소통 역할</h3>
+              <h3 className="text-xl font-semibold mb-4">1. 기획 및 소통 역할</h3>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <div>
                   <p className="font-semibold text-foreground mb-2">• 점주 인터뷰 및 요구사항 분석</p>
@@ -144,13 +144,14 @@ export default function DineQPage() {
             </div>
 
             <div className="border-l-4 border-green-500 pl-6">
-              <h3 className="text-xl font-semibold mb-4">백엔드 개발 역할</h3>
+              <h3 className="text-xl font-semibold mb-4">2. 백엔드 개발 역할</h3>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <div>
                   <p className="font-semibold text-foreground mb-2">• Spring Boot 기반 백엔드 전반 구현</p>
                   <ul className="ml-4 space-y-1">
                     <li>- 주문 / 결제 / 메뉴 도메인 설계</li>
                     <li>- REST API 개발</li>
+                    <li>- QR코드 로직 설계</li>
                     <li>- JPA 기반 데이터 모델링 및 서비스 레이어 설계</li>
                   </ul>
                 </div>
@@ -168,7 +169,7 @@ export default function DineQPage() {
 
           {/* SECTION 4: TECH STACK */}
           <section id="tech" className="mb-12 bg-gray-50 p-8 rounded-lg scroll-mt-16">
-            <h2 className="text-2xl font-bold mb-6">Tech Stack</h2>
+            <h2 className="text-2xl font-bold mb-6">기술</h2>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="border rounded-lg p-6 bg-white shadow-sm">
                 <h3 className="font-semibold mb-3">Backend</h3>
@@ -211,7 +212,7 @@ export default function DineQPage() {
 
           {/* SECTION 5: CHALLENGES & SOLUTIONS */}
           <section id="challenges" className="mb-12 bg-white p-8 rounded-lg scroll-mt-16">
-            <h2 className="text-2xl font-bold mb-6">Challenges & Solutions</h2>
+            <h2 className="text-2xl font-bold mb-6">문제 및 해결</h2>
 
             <div className="border-l-4 border-blue-600 pl-6 mb-8">
               <h3 className="text-xl font-semibold mb-4">테이블 오더 환경에서 발생한 보안 문제</h3>
@@ -219,16 +220,16 @@ export default function DineQPage() {
               <div className="mb-6">
                 <h4 className="text-lg font-bold mb-3 text-red-600">Problem</h4>
                 <p className="text-muted-foreground mb-3 leading-relaxed">
-                  초기 설계에서는 QR 스캔 시 다음과 같은 URL 구조를 사용했습니다:
+                  초기 설계에서는 QR 스캔 시 다음과 같은 URL 구조를 사용했습니다 :
                 </p>
                 <div className="bg-muted p-4 rounded-lg mb-3">
                   <code>/api/v1/table/{tableId}</code>
                 </div>
-                <p className="text-muted-foreground mb-2">This caused serious real-world security issues:</p>
+                <p className="text-muted-foreground mb-2">이는 다음과 같은 문제를 발생시켰습니다 :</p>
                 <ul className="space-y-2 text-muted-foreground ml-4">
                   <li>• URL만 알면 외부에서도 누구나 접근 가능</li>
                   <li>• 주문 후 집으로 돌아가도 브라우저가 열려 있으면 집에서도 주문 가능</li>
-                  <li>• tableId만으로 고객을 구분할 수 없어 테이블 오용 및 중복 주문 위험 발생</li>
+                  <li>• tableId만으로 고객을 구분할 수 없어 테이블 오용 및 중복 주문 위험 발생 (주문 주체 구분 불가)</li>
                 </ul>
                 <p className="mt-4 font-semibold text-foreground">
                   "tableId 기반 접근 방식은 실서비스 환경에서 보안적으로 치명적"
@@ -244,7 +245,7 @@ export default function DineQPage() {
                       <code>/api/v1/register/{tableId}</code>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      테이블 고정 URL 제거, 토큰 발급 전용 API로 역할 분리
+                      QR코드를 스캔할 경우, 주문페이지로 이동하는 것이 아니라 토큰 발급 API로 요청을 보내도록 변경
                     </p>
                   </div>
 
@@ -260,7 +261,7 @@ export default function DineQPage() {
                   <div className="border rounded-lg p-4 bg-card">
                     <p className="font-semibold mb-2">3. 토큰 포함 URL 전달</p>
                     <div className="bg-muted p-3 rounded mb-2">
-                      <code>http://localhost:3000/table/5?token=abc123xyz456</code>
+                      <code>https://프론트/table/5?token=abc123xyz456</code>
                     </div>
                     <p className="text-sm text-muted-foreground">
                       프론트엔드에서 토큰 저장 후 모든 API 요청에 헤더로 전달
@@ -268,7 +269,7 @@ export default function DineQPage() {
                   </div>
 
                   <div className="border rounded-lg p-4 bg-card">
-                    <p className="font-semibold mb-2">4. 모든 고객용 API에서 토큰 검증</p>
+                    <p className="font-semibold mb-2">4. 이후 모든 고객용 API에서 토큰 검증</p>
                     <ul className="text-sm text-muted-foreground space-y-1">
                       <li>• 요청 헤더에서 토큰 추출</li>
                       <li>• DB 유효성 검사</li>
@@ -279,7 +280,7 @@ export default function DineQPage() {
                   <div className="border rounded-lg p-4 bg-card">
                     <p className="font-semibold mb-2">5. 토큰 자동 만료 처리</p>
                     <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• 스케줄러를 통해 일정 시간(예: 30분) 경과 시 자동 삭제</li>
+                      <li>• 스케줄러를 통해 일정 시간(30분) 경과 시 자동 삭제</li>
                       <li>• 매장 외부 접근 가능성 원천 차단</li>
                     </ul>
                   </div>
