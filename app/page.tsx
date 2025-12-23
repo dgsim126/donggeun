@@ -19,7 +19,7 @@ export default function HomePage() {
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-balance leading-tight">
               현장의 요구를 기술로 풀어내는
               <br />
-              서버 개발자, <span className="text-blue-600 inline-block">심동근</span>
+              서버 개발자르, <span className="text-blue-600 inline-block">심동근</span>
             </h1>
           </div>
         </section>
