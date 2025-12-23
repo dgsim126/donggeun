@@ -1,26 +1,22 @@
 "use client"
+
 import { ProjectCard } from "@/components/project-card"
 import { TechBadge } from "@/components/tech-badge"
 import { Navigation } from "@/components/navigation"
-// import { FaEnvelope, FaPhone, FaGithub } from "react-icons/fa"
-import { 
-  LuMail, 
-  LuPhone, 
-  LuMapPin, 
-  LuGithub 
-} from "react-icons/lu"
-
+import { LuMail, LuPhone, LuMapPin, LuGithub } from "react-icons/lu"
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen">
+    // ✅ 150% 고정 확대
+    <main className="min-h-screen" style={{ zoom: 1.5 }}>
       <Navigation />
 
       <div className="pt-12 sm:pt-14">
         {/* Page 1: Hero */}
         <section
           id="hero"
-          className="scroll-mt-12 sm:scroll-mt-14 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-background"
+          // ✅ zoom(1.5)일 때 “화면 1장” 높이 보정: 100vh / 1.5
+          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100vh/1.5)] flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-background"
         >
           <div className="max-w-5xl w-full">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-balance leading-tight">
@@ -30,12 +26,11 @@ export default function HomePage() {
             </h1>
           </div>
         </section>
-        
 
         {/* Page 2: 자기소개 */}
         <section
           id="about"
-          className="scroll-mt-12 sm:scroll-mt-14 min-h-screen flex items-center px-4 sm:px-6 lg:px-8 py-8 bg-secondary/30"
+          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100vh/1.5)] flex items-center px-4 sm:px-6 lg:px-8 py-8 bg-secondary/30"
         >
           <div className="max-w-5xl mx-auto w-full">
             <div className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-10">
@@ -51,19 +46,20 @@ export default function HomePage() {
               </div>
 
               {/* RIGHT : 텍스트 (줄바꿈 절대 수정 안 함) */}
-              <div className="prose max-w-none space-y-2">
-                <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
+              {/* ✅ p 안에 div 넣으면 레이아웃 깨짐 → div로 교체 (줄바꿈은 그대로 유지) */}
+              <div className="space-y-2">
+                <div className="text-foreground leading-relaxed text-xs md:text-[13px]">
                   안녕하세요.{"  "}
                   <strong className="font-semibold">
                     현장의 문제를 기술로 해결하는 서버 개발자 심동근
                   </strong>
                   입니다.
-                </p>
+                </div>
 
-                <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
+                <div className="text-foreground leading-relaxed text-xs md:text-[13px]">
                   <div>
-                    주점 <span className="text-blue-700 font-semibold">술고래 세종점</span> 에서 운영되는
-                    QR 테이블 주문 서비스를 개발 및 유지보수하며, 서비스 기획 단계부터
+                    주점 <span className="text-blue-700 font-semibold">술고래 세종점</span> 에서 운영되는 QR 테이블
+                    주문 서비스를 개발 및 유지보수하며, 서비스 기획 단계부터
                   </div>
                   <div>
                     매장 사장님과 직접 만나{" "}
@@ -72,52 +68,48 @@ export default function HomePage() {
                     </strong>
                     을 경험했습니다.
                   </div>
-                </p>
+                </div>
 
-                <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
+                <div className="text-foreground leading-relaxed text-xs md:text-[13px]">
                   <div>
-                    그 과정에서 서비스의 기능 자체보다도 매장 운영의 흐름을 방해하지 않는지,
-                    업무가 번거로워지지 않는지
+                    그 과정에서 서비스의 기능 자체보다도 매장 운영의 흐름을 방해하지 않는지, 업무가 번거로워지지
+                    않는지
                   </div>
                   <div>파악하고 개선하는 것이 더 중요하다는 것을 깨닫게 되었습니다.</div>
-                </p>
+                </div>
 
-                <p className="text-foreground leading-relaxed text-xs md:text-[13px] mt-8" />
-                <p className="text-foreground leading-relaxed text-xs md:text-[13px] mt-8" />
+                <div className="mt-8" />
+                <div className="mt-8" />
 
-                <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
+                <div className="text-foreground leading-relaxed text-xs md:text-[13px]">
                   <div>
                     또한, 주차관제회사{" "}
                     <span className="text-blue-700 font-semibold">(주)아너스코리아</span> 와 협업해{" "}
-                    <strong className="font-semibold">
-                      기존 시스템의 제약 속에서 연동 구조를 설계하며
-                    </strong>
-                    ,
+                    <strong className="font-semibold">기존 시스템의 제약 속에서 연동 구조를 설계하며</strong>,
                   </div>
                   <div>
-                    실제 차량의 입·출차 정보와 요금 기록을 앱에서 안정적으로 확인할 수 있는
-                    서버 구조를 구현한 경험이 있습니다.
+                    실제 차량의 입·출차 정보와 요금 기록을 앱에서 안정적으로 확인할 수 있는 서버 구조를 구현한 경험이
+                    있습니다.
                   </div>
-                </p>
+                </div>
 
-                <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
+                <div className="text-foreground leading-relaxed text-xs md:text-[13px]">
                   <div>
                     이를 통해{" "}
                     <strong className="font-semibold">
-                      기존 기업 업무의 주요 흐름에 대한 이해와, 여러 이해관계자와 소통하며
-                      업무 기준을 맞추는 것
+                      기존 기업 업무의 주요 흐름에 대한 이해와, 여러 이해관계자와 소통하며 업무 기준을 맞추는 것
                     </strong>
                     이
                   </div>
                   <div>무엇보다 우선되어야 한다는 것을 깨닫게 되었습니다.</div>
-                </p>
+                </div>
 
-                <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
+                <div className="text-foreground leading-relaxed text-xs md:text-[13px]">
                   <strong className="font-semibold">
-                    기술은 결국 현장의 문제를 해결하기 위한 수단이라는 생각으로, 지속 가능한
-                    구조와 명확한 소통을 기반의 개발을 이어나가겠습니다.
+                    기술은 결국 현장의 문제를 해결하기 위한 수단이라는 생각으로, 지속 가능한 구조와 명확한 소통을 기반의
+                    개발을 이어나가겠습니다.
                   </strong>
-                </p>
+                </div>
               </div>
 
               {/* CONTACT : 두 칼럼 전체 폭 */}
@@ -129,9 +121,7 @@ export default function HomePage() {
                 >
                   <LuMail className="mx-auto mb-2 h-4 w-4 text-muted-foreground" />
                   <p className="text-[11px] md:text-xs font-semibold">Email</p>
-                  <p className="mt-1 text-[10px] md:text-[11px] text-muted-foreground truncate">
-                    dgsim126@gmail.com
-                  </p>
+                  <p className="mt-1 text-[10px] md:text-[11px] text-muted-foreground truncate">dgsim126@gmail.com</p>
                 </div>
 
                 {/* Phone */}
@@ -141,9 +131,7 @@ export default function HomePage() {
                 >
                   <LuPhone className="mx-auto mb-2 h-4 w-4 text-muted-foreground" />
                   <p className="text-[11px] md:text-xs font-semibold">Phone</p>
-                  <p className="mt-1 text-[10px] md:text-[11px] text-muted-foreground">
-                    010-7758-9420
-                  </p>
+                  <p className="mt-1 text-[10px] md:text-[11px] text-muted-foreground">010-7758-9420</p>
                 </div>
 
                 {/* Address */}
@@ -165,24 +153,17 @@ export default function HomePage() {
                 >
                   <LuGithub className="mx-auto mb-2 h-4 w-4 text-muted-foreground" />
                   <p className="text-[11px] md:text-xs font-semibold">GitHub</p>
-                  <p className="mt-1 text-[10px] md:text-[11px] text-muted-foreground truncate">
-                    github.com/dgsim126
-                  </p>
+                  <p className="mt-1 text-[10px] md:text-[11px] text-muted-foreground truncate">github.com/dgsim126</p>
                 </div>
               </div>
             </div>
-
-
-            
           </div>
         </section>
-
-
 
         {/* Page 3: 역량 */}
         <section
           id="capabilities"
-          className="scroll-mt-12 sm:scroll-mt-14 min-h-screen flex items-center px-4 sm:px-6 lg:px-8 py-8 bg-background"
+          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100vh/1.5)] flex items-center px-4 sm:px-6 lg:px-8 py-8 bg-background"
         >
           <div className="max-w-5xl mx-auto w-full">
             <div className="grid lg:grid-cols-[1fr_320px] gap-6 lg:gap-10">
@@ -209,9 +190,7 @@ export default function HomePage() {
                 </div>
 
                 <div>
-                  <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">
-                    [실시간 처리 및 서버 성능 최적화]
-                  </h3>
+                  <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">[실시간 처리 및 서버 성능 최적화]</h3>
                   <ul className="space-y-0.5 text-[11px] md:text-xs text-foreground/90 leading-relaxed">
                     <li>- Redis 큐를 활용한 비동기 알림 전송 구조 구현으로 서버 부하 감소</li>
                     <li>- 웹소켓을 활용한 실시간 데이터 수신·처리 구조 설계</li>
@@ -219,9 +198,7 @@ export default function HomePage() {
                 </div>
 
                 <div>
-                  <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">
-                    [API·도메인 설계 및 데이터 처리]
-                  </h3>
+                  <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">[API·도메인 설계 및 데이터 처리]</h3>
                   <ul className="space-y-0.5 text-[11px] md:text-xs text-foreground/90 leading-relaxed">
                     <li>- QR 테이블 오더, 주차 관리, 일정 관리 등 여러 서비스의 REST API 설계 및 구현</li>
                     <li>- @Entity 기반 JPA 도메인 모델링 및 연관관계 매핑</li>
@@ -243,7 +220,6 @@ export default function HomePage() {
               <div>
                 <h3 className="text-xs md:text-sm font-bold mb-2 text-foreground">기술 스택</h3>
                 <div className="flex flex-wrap gap-1.5">
-
                   <TechBadge>JAVA</TechBadge>
                   <TechBadge>Spring Boot</TechBadge>
                   <TechBadge>Spring Security</TechBadge>
@@ -253,37 +229,27 @@ export default function HomePage() {
                   <TechBadge>Gradle</TechBadge>
                   <TechBadge>MyBatis</TechBadge>
                   <TechBadge>Spring Data JPA</TechBadge>
-                  <div className="w-full" />
-                  <div className="w-full" />
-                  <div className="w-full" />
 
-                  
+                  <div className="w-full" />
                   <TechBadge>amazon AWS</TechBadge>
                   <TechBadge>Docker</TechBadge>
                   <TechBadge>WebSocket</TechBadge>
-                  
+
                   <div className="w-full" />
                   <TechBadge>Git</TechBadge>
                   <TechBadge>Redis</TechBadge>
                   <TechBadge>OAuth2</TechBadge>
-                  <div className="w-full" />
-                  <div className="w-full" />
-                  <div className="w-full" />
 
+                  <div className="w-full" />
                   <TechBadge>MySQL</TechBadge>
                   <TechBadge>MariaDB</TechBadge>
                   <TechBadge>PostgreSQL</TechBadge>
                   <TechBadge>MongoDB</TechBadge>
-                  <div className="w-full" />
-                  <div className="w-full" />
-                  <div className="w-full" />
-                  
 
-                  
+                  <div className="w-full" />
                   <TechBadge>REST API</TechBadge>
                   <TechBadge>Node.js</TechBadge>
                   <TechBadge>Express.js</TechBadge>
-                  
                 </div>
               </div>
             </div>
@@ -293,7 +259,7 @@ export default function HomePage() {
         {/* Page 4: 정보 */}
         <section
           id="info"
-          className="scroll-mt-12 sm:scroll-mt-14 min-h-screen flex items-center px-4 sm:px-6 lg:px-8 py-8 bg-secondary/30"
+          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100vh/1.5)] flex items-center px-4 sm:px-6 lg:px-8 py-8 bg-secondary/30"
         >
           <div className="max-w-5xl mx-auto w-full">
             <div className="grid md:grid-cols-2 gap-4 mb-4">
@@ -316,21 +282,15 @@ export default function HomePage() {
                 <div className="space-y-2 text-foreground leading-relaxed">
                   <div>
                     <p className="font-semibold text-[11px] md:text-xs">삼성소프트웨어아카데미(SSAFY) (2025.07~)</p>
-                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
-                      삼성소프트웨어아카데미 과정 수료 중
-                    </p>
+                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">삼성소프트웨어아카데미 과정 수료 중</p>
                   </div>
                   <div>
                     <p className="font-semibold text-[11px] md:text-xs">멋쟁이사자처럼(2024.03~2024.12) 동아리</p>
-                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
-                      멋쟁이사자처럼 대학 12기 (백앤드)
-                    </p>
+                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">멋쟁이사자처럼 대학 12기 (백앤드)</p>
                   </div>
                   <div>
                     <p className="font-semibold text-[11px] md:text-xs">언더독레볼루션(2024.03~2024.12) 동아리</p>
-                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
-                      교내 개발 및 창업 동아리 언더독레볼루션 운영진
-                    </p>
+                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">교내 개발 및 창업 동아리 언더독레볼루션 운영진</p>
                   </div>
                 </div>
               </div>
@@ -338,17 +298,13 @@ export default function HomePage() {
 
             {/* 자격·어학·수상 */}
             <div className="border-2 border-border rounded-xl p-4 bg-background/80 shadow-sm">
-              <h3 className="text-sm md:text-base font-bold mb-3 text-foreground">
-                자격·어학·수상
-              </h3>
+              <h3 className="text-sm md:text-base font-bold mb-3 text-foreground">자격·어학·수상</h3>
 
               <div className="space-y-1.5">
                 <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
                   <span className="text-muted-foreground font-medium">2025.12</span>
                   <span className="font-semibold">TOEIC 780점</span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
-                    한국TOEIC위원회
-                  </span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">한국TOEIC위원회</span>
                 </div>
 
                 <div className="border-t border-border/60 my-1" />
@@ -356,9 +312,7 @@ export default function HomePage() {
                 <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
                   <span className="text-muted-foreground font-medium">2025.11</span>
                   <span className="font-semibold">TOPCIT 650점</span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
-                    정보통신기획평가원
-                  </span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">정보통신기획평가원</span>
                 </div>
 
                 <div className="border-t border-border/60 my-1" />
@@ -366,9 +320,7 @@ export default function HomePage() {
                 <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
                   <span className="text-muted-foreground font-medium">2025.11</span>
                   <span className="font-semibold">데이터분석준전문가(ADsP)</span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
-                    한국데이터베이스진흥원
-                  </span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">한국데이터베이스진흥원</span>
                 </div>
 
                 <div className="border-t border-border/60 my-1" />
@@ -376,33 +328,23 @@ export default function HomePage() {
                 <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
                   <span className="text-muted-foreground font-medium">2025.10</span>
                   <span className="font-semibold">한국사능력검정 2급</span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
-                    국사편찬위원회
-                  </span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">국사편찬위원회</span>
                 </div>
 
                 <div className="border-t border-border/60 my-1" />
 
                 <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
                   <span className="text-muted-foreground font-medium">2024.12</span>
-                  <span className="font-semibold">
-                    [컴퓨터융합소프트웨어학과] 졸업 캡스톤 전체 3등
-                  </span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
-                    고려대학교 세종
-                  </span>
+                  <span className="font-semibold">[컴퓨터융합소프트웨어학과] 졸업 캡스톤 전체 3등</span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">고려대학교 세종</span>
                 </div>
 
                 <div className="border-t border-border/60 my-1" />
 
                 <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
                   <span className="text-muted-foreground font-medium">2024.12</span>
-                  <span className="font-semibold">
-                    [컴퓨터융합소프트웨어학과] 제 26회 학술제 2등
-                  </span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
-                    고려대학교 세종
-                  </span>
+                  <span className="font-semibold">[컴퓨터융합소프트웨어학과] 제 26회 학술제 2등</span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">고려대학교 세종</span>
                 </div>
 
                 <div className="border-t border-border/60 my-1" />
@@ -410,9 +352,7 @@ export default function HomePage() {
                 <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
                   <span className="text-muted-foreground font-medium">2024.12</span>
                   <span className="font-semibold">정보처리기사</span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
-                    한국산업인력공단
-                  </span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">한국산업인력공단</span>
                 </div>
 
                 <div className="border-t border-border/60 my-1" />
@@ -420,34 +360,27 @@ export default function HomePage() {
                 <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
                   <span className="text-muted-foreground font-medium">2024.09</span>
                   <span className="font-semibold">SQL개발자(SQLD자격)</span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
-                    한국데이터베이스진흥센터
-                  </span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">한국데이터베이스진흥센터</span>
                 </div>
 
                 <div className="border-t border-border/60 my-1" />
 
                 <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
                   <span className="text-muted-foreground font-medium">2024.08</span>
-                  <span className="font-semibold">
-                    [세종시] SW융합클러스터 2.0 디지털 콘텐츠 DX 해커톤 우수상
-                  </span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
-                    세종테크노파크
-                  </span>
+                  <span className="font-semibold">[세종시] SW융합클러스터 2.0 디지털 콘텐츠 DX 해커톤 우수상</span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">세종테크노파크</span>
                 </div>
               </div>
             </div>
-
           </div>
         </section>
 
         {/* Page 5: 포트폴리오 */}
         <section
           id="portfolio"
-          className="scroll-mt-12 sm:scroll-mt-14 min-h-screen py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-background"
+          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100vh/1.5)] py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-background flex items-center"
         >
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto w-full">
             <h2 className="text-xl md:text-2xl font-bold mb-6 text-foreground">프로젝트</h2>
 
             <div className="grid md:grid-cols-2 gap-5 mb-10">
@@ -474,16 +407,16 @@ export default function HomePage() {
                 <div className="flex-1">
                   <h3 className="text-base md:text-lg font-bold mb-1.5">모여봐요 | 일정 잡기 서비스</h3>
                   <p className="text-muted-foreground mb-3 leading-relaxed text-[11px] md:text-xs">
-                    다수 인원의 가능한 시간을 취합해 일정을 조율하는 웹 기반 일정 조율 서비스입니다. 사용자의 일정
-                    입력을 자동으로 계산하여 최적의 모임 시간을 계산합니다.
+                    다수 인원의 가능한 시간을 취합해 일정을 조율하는 웹 기반 일정 조율 서비스입니다. 사용자의 일정 입력을
+                    자동으로 계산하여 최적의 모임 시간을 계산합니다.
                   </p>
                   <div className="text-[10px] md:text-[11px] space-y-1">
                     <p>
                       <span className="text-muted-foreground font-medium">기간:</span> 2024.10.01~2024.11.30 / 인원: 5명
                     </p>
                     <p>
-                      <span className="text-muted-foreground font-medium">스택:</span> spring boot, java, PostgreSQL,
-                      docker, AWS, spring security, OAuth2
+                      <span className="text-muted-foreground font-medium">스택:</span> spring boot, java, PostgreSQL, docker,
+                      AWS, spring security, OAuth2
                     </p>
                     <p>
                       <span className="text-muted-foreground font-medium">링크:</span>{" "}
@@ -512,8 +445,8 @@ export default function HomePage() {
                 <div className="flex-1">
                   <h3 className="text-base md:text-lg font-bold mb-1.5">My Job Calendar | 취업 일정 관리 달력</h3>
                   <p className="text-muted-foreground mb-3 leading-relaxed text-[11px] md:text-xs">
-                    채용공고, 기업정보, 정부 및 공공기관의 학생 지원 프로그램 등을 달력 기반으로 한눈에 확인할 수 있는
-                    취업 일정 관리 서비스입니다. 사용자의 관심 기업 및 채용 일정을 달력 형태로 관리하도록 설계했습니다.
+                    채용공고, 기업정보, 정부 및 공공기관의 학생 지원 프로그램 등을 달력 기반으로 한눈에 확인할 수 있는 취업
+                    일정 관리 서비스입니다. 사용자의 관심 기업 및 채용 일정을 달력 형태로 관리하도록 설계했습니다.
                   </p>
                   <div className="text-[10px] md:text-[11px] space-y-1">
                     <p>
@@ -549,15 +482,16 @@ export default function HomePage() {
                 <div className="flex-1">
                   <h3 className="text-base md:text-lg font-bold mb-1.5">UniWeb | 교육용 웹 게임 서비스</h3>
                   <p className="text-muted-foreground mb-3 leading-relaxed text-[11px] md:text-xs">
-                    사용자가 원하는 문제와 정답을 입력하면 해당 내용을 바탕으로 게임이 생성됩니다. 이를 통해 교육용 웹 게임, 혹은 개성있는 문제를 가진 게임을 생성할 수 있습니다.
+                    사용자가 원하는 문제와 정답을 입력하면 해당 내용을 바탕으로 게임이 생성됩니다. 이를 통해 교육용 웹 게임,
+                    혹은 개성있는 문제를 가진 게임을 생성할 수 있습니다.
                   </p>
                   <div className="text-[10px] md:text-[11px] space-y-1">
                     <p>
                       <span className="text-muted-foreground font-medium">기간:</span> 2024.09.04~2024.10.13 / 인원: 3명
                     </p>
                     <p>
-                      <span className="text-muted-foreground font-medium">스택:</span> node.js, express.js, mariaDB, AWS
-                      EC2, Unity, C#, React
+                      <span className="text-muted-foreground font-medium">스택:</span> node.js, express.js, mariaDB, AWS EC2,
+                      Unity, C#, React
                     </p>
                     <p>
                       <span className="text-muted-foreground font-medium">링크:</span>{" "}
@@ -573,12 +507,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="w-full md:w-36 h-36 rounded-lg overflow-hidden border border-border flex-shrink-0 bg-muted">
-                  <img
-                    src="/images/uniweb_main.png"
-                    alt="UniWeb 프로젝트 이미지"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+                  <img src="/images/uniweb_main.png" alt="UniWeb 프로젝트 이미지" className="w-full h-full object-cover" loading="lazy" />
                 </div>
               </div>
             </div>

@@ -118,8 +118,40 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-@layer base {
+/* =========================
+   ✅ Zoom / Section Height Fix
+   - page 전체에 zoom 적용
+   - 각 섹션은 zoom을 고려한 "한 화면" 높이로 보정
+   - 네비게이션 높이는 56px(=3.5rem)로 가정
+   ========================= */
 
+/* 원하는 고정 배율(1.5) */
+.page-zoom {
+  --z: 1.5;
+  zoom: var(--z);
+}
+
+/* ✅ zoom 미지원 브라우저 대비 (transform fallback) */
+@supports not (zoom: 1) {
+  .page-zoom {
+    transform: scale(var(--z));
+    transform-origin: top left;
+    width: calc(100% / var(--z));
+  }
+}
+
+/* ✅ 네비게이션(고정 헤더) 높이만큼 빼고, zoom 보정까지 포함 */
+:root {
+  --nav-h: 56px; /* 네 Navigation 실제 높이에 맞춰 48~72px 사이로 조절 */
+}
+
+.vh-section {
+  min-height: calc((100vh - var(--nav-h)) / var(--z));
+}
+
+/* ========================= */
+
+@layer base {
   * {
     @apply border-border outline-ring/50;
   }
