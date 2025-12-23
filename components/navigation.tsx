@@ -7,7 +7,7 @@ const sections = [
   { id: "about", label: "자기소개" },
   { id: "capabilities", label: "역량" },
   { id: "info", label: "정보" },
-  { id: "portfolio", label: "포트폴리오" },
+  { id: "portfolio", label: "프로젝트" },
 ]
 
 export function Navigation() {

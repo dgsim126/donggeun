@@ -19,7 +19,7 @@ export default function HomePage() {
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-balance leading-tight">
               현장의 요구를 기술로 풀어내는
               <br />
-              서버 개발자르, <span className="text-blue-600 inline-block">심동근</span>
+              서버 개발자, <span className="text-blue-600 inline-block">심동근</span>
             </h1>
           </div>
         </section>
@@ -33,9 +33,16 @@ export default function HomePage() {
           <div className="max-w-5xl mx-auto w-full">
             <div className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-10">
               <div className="space-y-4 w-52 mx-auto md:mx-0">
-                <div className="w-52 h-52 bg-muted rounded-lg flex items-center justify-center border-2 border-border shadow-md">
-                  <span className="text-muted-foreground text-sm">사진</span>
-                </div>
+                <div className="w-52 h-[277px] mx-auto md:mx-0 rounded-lg overflow-hidden border-2 border-border shadow-md bg-muted">
+  <img
+    src="/images/my.png"
+    alt="심동근 증명사진"
+    className="w-full h-full object-cover object-top"
+  />
+</div>
+
+
+
                 <div className="space-y-3 bg-background/50 rounded-lg p-4 border border-border w-52">
                   <div className="flex items-center gap-3">
                     <FaEnvelope className="w-4 h-4 text-muted-foreground flex-shrink-0" />
@@ -63,27 +70,35 @@ export default function HomePage() {
               {/* </CHANGE> */}
               <div className="prose max-w-none space-y-2">
                 <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
-                  안녕하세요.{" "}
+                  안녕하세요.{"  "}
                   <strong className="font-semibold">현장의 문제를 기술로 해결하는 서버 개발자 심동근</strong>입니다.
                 </p>
                 <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
-                  실제 주점에서 운영되는 QR 테이블 주문 서비스를 개발·유지보수하며, 매장 사장님과 직접 만나{" "}
-                  <strong className="font-semibold">
+                  <div> 주점  <span className="text-blue-700 font-semibold">술고래 세종점</span> 에서 운영되는 QR 테이블 주문 서비스를 개발 및 유지보수하며, 서비스 기획 단계부터</div>
+                  <div>매장 사장님과 직접 만나 <strong className="font-semibold">
                     운영 문제를 함께 정의하고 요구사항을 도출해 기능과 구조에 반영하는 과정
-                  </strong>
-                  을 경험했습니다.
+                  </strong>을 경험했습니다.</div>
+                  
                 </p>
                 <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
-                  현장 점검을 통해 수집한 사용자 피드백과 운영 흐름을 분석하여, 발생하는 문제들을 기능 개선과 아키텍처
-                  보완으로 해결해왔습니다.
+                  <div>그 과정에서 서비스의 기능 자체보다도 매장 운영의 흐름을 방해하지 않는지, 업무가 번거로워지지 않는지</div>
+                  <div> 파악하고 개선하는 것이 더 중요하다는 것을 깨닫게 되었습니다. </div>
+                </p>
+                <p className="text-foreground leading-relaxed text-xs md:text-[13px] mt-8" />
+                <p className="text-foreground leading-relaxed text-xs md:text-[13px] mt-8" />
+
+
+                <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
+                  <div>또한, 주차관제회사 <span className="text-blue-700 rounded font-semibold"> (주)아너스코리아 </span> 와 협업해 <strong className="font-semibold">기존 시스템의 제약 속에서 연동 구조를 설계하며</strong>,</div>
+                  <div>실제 차량의 입·출차 정보와 요금 기록을 앱에서 안정적으로 확인할 수 있는 서버 구조를 구현한 경험이 있습니다.</div>
+                </p>
+
+                <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
+                  <div>이를 통해 <strong className="font-semibold">기존 기업 업무의 주요 흐름에 대한 이해와, 여러 이해관계자와 소통하며 업무 기준을 맞추는 것</strong>이 </div>
+                  <div>무엇보다 우선되어야 한다는 것을 깨닫게 되었습니다.</div>
                 </p>
                 <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
-                  또한, 주차관제회사와 협업해 기존 시스템의 제약 속에서 연동 구조를 설계하며, 실제 차량의 입·출차 정보와
-                  요금 기록을 앱에서 안정적으로 확인할 수 있는 서버 구조를 구현한 경험이 있습니다.
-                </p>
-                <p className="text-foreground leading-relaxed text-xs md:text-[13px]">
-                  기술은 결국 현장의 문제를 해결하기 위한 수단이라는 생각으로, 지속 가능한 구조와 명확한 소통을 기반으로
-                  개발을 이어가고 있습니다.
+                  <strong className="font-semibold">기술은 결국 현장의 문제를 해결하기 위한 수단이라는 생각으로, 지속 가능한 구조와 명확한 소통을 기반의 개발을 이어나가겠습니다.</strong>
                 </p>
               </div>
             </div>
@@ -103,7 +118,7 @@ export default function HomePage() {
                   <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">[실서비스 운영 경험]</h3>
                   <ul className="space-y-0.5 text-[11px] md:text-xs text-foreground/90 leading-relaxed">
                     <li>
-                      - 실제 주점에서 운영되는 QR 테이블 주문 서비스 개발 및 유지보수 (누적 1,800건 이상 주문 처리, 현재
+                      - 실제 주점에서 운영되는 QR 테이블 주문 서비스 개발 및 유지보수 (누적 2,000건 이상 주문 처리, 현재
                       운영 중)
                     </li>
                     <li>- 실제 주차장 운영 환경을 기준으로 한 실서비스 연동형 시스템 개발</li>
@@ -154,28 +169,47 @@ export default function HomePage() {
               <div>
                 <h3 className="text-xs md:text-sm font-bold mb-2 text-foreground">기술 스택</h3>
                 <div className="flex flex-wrap gap-1.5">
-                  <TechBadge>AWS</TechBadge>
-                  <TechBadge>Docker</TechBadge>
-                  <TechBadge>Redis</TechBadge>
-                  <TechBadge>WebSocket</TechBadge>
-                  <TechBadge>Maven</TechBadge>
-                  <TechBadge>Gradle</TechBadge>
-                  <TechBadge>Git</TechBadge>
-                  <TechBadge>REST API</TechBadge>
-                  <TechBadge>Node.js</TechBadge>
-                  <TechBadge>Express.js</TechBadge>
+
+                  <TechBadge>JAVA</TechBadge>
                   <TechBadge>Spring Boot</TechBadge>
                   <TechBadge>Spring Security</TechBadge>
-                  <TechBadge>OAuth</TechBadge>
-                  <TechBadge>Spring Data JPA</TechBadge>
-                  <TechBadge>MyBatis</TechBadge>
-                  <TechBadge>JAVA</TechBadge>
                   <TechBadge>JSP</TechBadge>
                   <TechBadge>Servlet</TechBadge>
+                  <TechBadge>Maven</TechBadge>
+                  <TechBadge>Gradle</TechBadge>
+                  <TechBadge>MyBatis</TechBadge>
+                  <TechBadge>Spring Data JPA</TechBadge>
+                  <div className="w-full" />
+                  <div className="w-full" />
+                  <div className="w-full" />
+
+                  
+                  <TechBadge>amazon AWS</TechBadge>
+                  <TechBadge>Docker</TechBadge>
+                  <TechBadge>WebSocket</TechBadge>
+                  
+                  <div className="w-full" />
+                  <TechBadge>Git</TechBadge>
+                  <TechBadge>Redis</TechBadge>
+                  <TechBadge>OAuth2</TechBadge>
+                  <div className="w-full" />
+                  <div className="w-full" />
+                  <div className="w-full" />
+
                   <TechBadge>MySQL</TechBadge>
                   <TechBadge>MariaDB</TechBadge>
                   <TechBadge>PostgreSQL</TechBadge>
                   <TechBadge>MongoDB</TechBadge>
+                  <div className="w-full" />
+                  <div className="w-full" />
+                  <div className="w-full" />
+                  
+
+                  
+                  <TechBadge>REST API</TechBadge>
+                  <TechBadge>Node.js</TechBadge>
+                  <TechBadge>Express.js</TechBadge>
+                  
                 </div>
               </div>
             </div>
@@ -207,6 +241,12 @@ export default function HomePage() {
                 <h3 className="text-sm md:text-base font-bold mb-3 text-foreground">경험·교육·활동</h3>
                 <div className="space-y-2 text-foreground leading-relaxed">
                   <div>
+                    <p className="font-semibold text-[11px] md:text-xs">삼성소프트웨어아카데미(SSAFY) (2025.07~)</p>
+                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
+                      삼성소프트웨어아카데미 과정 수료 중
+                    </p>
+                  </div>
+                  <div>
                     <p className="font-semibold text-[11px] md:text-xs">멋쟁이사자처럼(2024.03~2024.12) 동아리</p>
                     <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
                       멋쟁이사자처럼 대학 12기 (백앤드)
@@ -218,88 +258,113 @@ export default function HomePage() {
                       교내 개발 및 창업 동아리 언더독레볼루션 운영진
                     </p>
                   </div>
-                  <div>
-                    <p className="font-semibold text-[11px] md:text-xs">삼성소프트웨어아카데미(SSAFY) (2025.07~)</p>
-                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
-                      삼성소프트웨어아카데미 과정 수료 중
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
 
+            {/* 자격·어학·수상 */}
             <div className="border-2 border-border rounded-xl p-4 bg-background/80 shadow-sm">
-              <h3 className="text-sm md:text-base font-bold mb-3 text-foreground">자격·어학·수상</h3>
+              <h3 className="text-sm md:text-base font-bold mb-3 text-foreground">
+                자격·어학·수상
+              </h3>
+
               <div className="space-y-1.5">
-                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs">
-                  <span className="text-muted-foreground font-medium">2024.08</span>
-                  <span className="font-semibold">[세종시] SW융합클러스터 2.0 디지털 콘텐츠 DX 해커톤 우수상</span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">세종테크노파크</span>
-                </div>
-                <div className="border-t border-border/60" />
-
-                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs">
-                  <span className="text-muted-foreground font-medium">2024.09</span>
-                  <span className="font-semibold">SQL개발자(SQLD자격) 최종합격</span>
+                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
+                  <span className="text-muted-foreground font-medium">2025.12</span>
+                  <span className="font-semibold">TOEIC 780점</span>
                   <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
-                    한국데이터베이스진흥센터
+                    한국TOEIC위원회
                   </span>
                 </div>
-                <div className="border-t border-border/60" />
 
-                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs">
-                  <span className="text-muted-foreground font-medium">2024.12</span>
-                  <span className="font-semibold">정보처리기사 최종합격</span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">한국산업인력공단</span>
-                </div>
-                <div className="border-t border-border/60" />
+                <div className="border-t border-border/60 my-1" />
 
-                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs">
-                  <span className="text-muted-foreground font-medium">2024.12</span>
-                  <span className="font-semibold">[컴퓨터융합소프트웨어학과] 제 26회 학술제 2등</span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">고려대학교 세종</span>
-                </div>
-                <div className="border-t border-border/60" />
-
-                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs">
-                  <span className="text-muted-foreground font-medium">2024.12</span>
-                  <span className="font-semibold">[컴퓨터융합소프트웨어학과] 졸업 캡스톤 전체 3등</span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">고려대학교 세종</span>
-                </div>
-                <div className="border-t border-border/60" />
-
-                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs">
-                  <span className="text-muted-foreground font-medium">2025.10</span>
-                  <span className="font-semibold">한국사능력검정 2급</span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">국사편찬위원회</span>
-                </div>
-                <div className="border-t border-border/60" />
-
-                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs">
-                  <span className="text-muted-foreground font-medium">2025.12</span>
-                  <span className="font-semibold">데이터분석준전문가(ADsP) 최종합격</span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
-                    한국데이터베이스진흥원
-                  </span>
-                </div>
-                <div className="border-t border-border/60" />
-
-                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs">
-                  <span className="text-muted-foreground font-medium">2025.12</span>
-                  <span className="font-semibold">TOPCIT (수준: 4) 최종합격</span>
+                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
+                  <span className="text-muted-foreground font-medium">2025.11</span>
+                  <span className="font-semibold">TOPCIT 650점</span>
                   <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
                     정보통신기획평가원
                   </span>
                 </div>
-                <div className="border-t border-border/60" />
 
-                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs">
-                  <span className="text-muted-foreground font-medium">2025.12</span>
-                  <span className="font-semibold">TOEIC 780점</span>
-                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">한국TOEIC위원회</span>
+                <div className="border-t border-border/60 my-1" />
+
+                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
+                  <span className="text-muted-foreground font-medium">2025.11</span>
+                  <span className="font-semibold">데이터분석준전문가(ADsP)</span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
+                    한국데이터베이스진흥원
+                  </span>
+                </div>
+
+                <div className="border-t border-border/60 my-1" />
+
+                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
+                  <span className="text-muted-foreground font-medium">2025.10</span>
+                  <span className="font-semibold">한국사능력검정 2급</span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
+                    국사편찬위원회
+                  </span>
+                </div>
+
+                <div className="border-t border-border/60 my-1" />
+
+                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
+                  <span className="text-muted-foreground font-medium">2024.12</span>
+                  <span className="font-semibold">
+                    [컴퓨터융합소프트웨어학과] 졸업 캡스톤 전체 3등
+                  </span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
+                    고려대학교 세종
+                  </span>
+                </div>
+
+                <div className="border-t border-border/60 my-1" />
+
+                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
+                  <span className="text-muted-foreground font-medium">2024.12</span>
+                  <span className="font-semibold">
+                    [컴퓨터융합소프트웨어학과] 제 26회 학술제 2등
+                  </span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
+                    고려대학교 세종
+                  </span>
+                </div>
+
+                <div className="border-t border-border/60 my-1" />
+
+                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
+                  <span className="text-muted-foreground font-medium">2024.12</span>
+                  <span className="font-semibold">정보처리기사</span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
+                    한국산업인력공단
+                  </span>
+                </div>
+
+                <div className="border-t border-border/60 my-1" />
+
+                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
+                  <span className="text-muted-foreground font-medium">2024.09</span>
+                  <span className="font-semibold">SQL개발자(SQLD자격)</span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
+                    한국데이터베이스진흥센터
+                  </span>
+                </div>
+
+                <div className="border-t border-border/60 my-1" />
+
+                <div className="grid grid-cols-[70px_1fr] md:grid-cols-[90px_1fr_auto] gap-2 md:gap-3 items-baseline text-[11px] md:text-xs py-1">
+                  <span className="text-muted-foreground font-medium">2024.08</span>
+                  <span className="font-semibold">
+                    [세종시] SW융합클러스터 2.0 디지털 콘텐츠 DX 해커톤 우수상
+                  </span>
+                  <span className="text-muted-foreground text-[10px] md:text-[11px] hidden md:block">
+                    세종테크노파크
+                  </span>
                 </div>
               </div>
             </div>
+
           </div>
         </section>
 
@@ -309,12 +374,12 @@ export default function HomePage() {
           className="scroll-mt-12 sm:scroll-mt-14 min-h-screen py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-background"
         >
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-xl md:text-2xl font-bold mb-6 text-foreground">포트폴리오</h2>
+            <h2 className="text-xl md:text-2xl font-bold mb-6 text-foreground">프로젝트</h2>
 
             <div className="grid md:grid-cols-2 gap-5 mb-10">
               <ProjectCard
                 title="DineQ"
-                summary="실제 주점에서 운영 중이며 누적 1,800건 이상의 주문을 처리한 QR 기반 테이블 주문 시스템"
+                summary="누적 2,000건 이상의 주문을 처리한 QR 기반 테이블 주문 시스템"
                 href="/portfolio/dineq"
                 large
                 imageSrc="/images/dineq_main.png"
@@ -322,7 +387,7 @@ export default function HomePage() {
               />
               <ProjectCard
                 title="HonorsParking"
-                summary="주차장 관제 기업과 연동하여 차량 입·출차 정보 및 실시간 주차 요금을 조회·관리하는 실서비스 운영 프로젝트"
+                summary="(주)아너스코리아 서버와 연동하여 차량 입·출차 정보 및 실시간 주차 요금을 조회·관리하는 시스템"
                 href="/portfolio/honorsparking"
                 large
                 imageSrc="/images/honors_main.png"
