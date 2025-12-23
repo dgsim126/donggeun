@@ -12,10 +12,12 @@ export default function HomePage() {
       <Navigation />
 
       <div className="pt-12 sm:pt-14">
+
         {/* Page 1: Hero */}
         <section
           id="hero"
-          className="vh-section scroll-mt-12 sm:scroll-mt-14 justify-center px-4 sm:px-6 lg:px-8 bg-background"
+          className="vh-section !items-center scroll-mt-12 sm:scroll-mt-14 justify-center px-6 sm:px-8 lg:px-12
+ bg-background"
         >
           <div className="max-w-5xl w-full">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center text-balance leading-tight">
@@ -26,10 +28,11 @@ export default function HomePage() {
           </div>
         </section>
 
+
         {/* Page 2: 자기소개 */}
         <section
           id="about"
-          className="vh-section scroll-mt-12 sm:scroll-mt-14 px-4 sm:px-6 lg:px-8 py-8 bg-secondary/30"
+          className="vh-section scroll-mt-12 sm:scroll-mt-14 px-6 sm:px-8 lg:px-12 py-8 bg-secondary/30"
         >
           <div className="max-w-5xl mx-auto w-full">
             <div className="grid md:grid-cols-[240px_1fr] gap-6 md:gap-10">
@@ -157,7 +160,7 @@ export default function HomePage() {
         {/* Page 3: 역량 */}
         <section
           id="capabilities"
-          className="vh-section scroll-mt-12 sm:scroll-mt-14 px-4 sm:px-6 lg:px-8 py-8 bg-background"
+          className="vh-section scroll-mt-12 sm:scroll-mt-14 px-6 sm:px-8 lg:px-12 py-8 bg-background"
         >
           <div className="max-w-5xl mx-auto w-full">
             <div className="grid lg:grid-cols-[1fr_320px] gap-6 lg:gap-10">
@@ -251,9 +254,10 @@ export default function HomePage() {
         {/* Page 4: 정보 */}
         <section
           id="info"
-          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100svh-3.5rem)] flex items-center px-4 sm:px-6 lg:px-8 py-8 bg-secondary/30"
+          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100svh-3.5rem)] flex items-center px-6 sm:px-8 lg:px-12 py-8 bg-secondary/30"
         >
-          <div className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto w-full">
+          <div className="max-w-5xl mx-auto w-full">
+
             <div className="grid md:grid-cols-2 gap-4 mb-4">
               <div className="border-2 border-border rounded-xl p-4 bg-background/80 shadow-sm">
                 <h3 className="text-sm md:text-base font-bold mb-3 text-foreground">학력</h3>
@@ -382,9 +386,10 @@ export default function HomePage() {
         {/* Page 5: 포트폴리오 */}
         <section
           id="portfolio"
-          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100svh-3.5rem)] py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-background flex items-center"
+          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100svh-3.5rem)] py-10 md:py-12 px-6 sm:px-8 lg:px-12 bg-background flex items-center"
         >
-          <div className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto w-full">
+          <div className="max-w-5xl mx-auto w-full">
+
             <h2 className="text-xl md:text-2xl font-bold mb-6 text-foreground">프로젝트</h2>
 
             <div className="grid md:grid-cols-2 gap-5 mb-10">
