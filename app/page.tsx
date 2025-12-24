@@ -221,49 +221,69 @@ export default function HomePage() {
               </div>
 
               <div>
-                <h3 className="text-xs md:text-sm font-bold mb-2 text-foreground">기술 스택</h3>
+                
 
-                <div className="flex flex-wrap gap-1.5">
-                  {/* Backend / Java */}
-                  <TechBadge>JAVA</TechBadge>
-                  <TechBadge>Spring Boot</TechBadge>
-                  <TechBadge>Spring Security</TechBadge>
-                  <TechBadge>JSP</TechBadge>
-                  <TechBadge>Servlet</TechBadge>
-                  <TechBadge>Maven</TechBadge>
-                  <TechBadge>Gradle</TechBadge>
-                  <TechBadge>MyBatis</TechBadge>
-                  <TechBadge>Spring Data JPA</TechBadge>
+<div className="space-y-6">
+  {/* Language */}
+  <section>
+    <h3 className="text-xs md:text-sm font-bold text-foreground mb-2">
+      Backend (Language, Framework)
+    </h3>
+    <div className="flex flex-wrap gap-1.5">
+      <TechBadge>JAVA</TechBadge>
+      <TechBadge>JSP</TechBadge>
+      <TechBadge>Servlet</TechBadge>
+      <TechBadge>Spring Boot</TechBadge>
+      <TechBadge>Spring Security</TechBadge>
+      <TechBadge>Node.js</TechBadge>
+      <TechBadge>Express.js</TechBadge>
+    </div>
+  </section>
+  <hr className="my-4 border-border/60" />
 
-                  <hr className="w-full my-2 border-border/60" />
 
-                  {/* Infra */}
-                  <TechBadge>amazon AWS</TechBadge>
-                  <TechBadge>Docker</TechBadge>
-                  <TechBadge>WebSocket</TechBadge>
+  {/* Data Access */}
+  <section>
+    <h3 className="text-xs md:text-sm font-bold text-foreground mb-2">
+      Data (ORM, DB, Cache)
+    </h3>
+    <div className="flex flex-wrap gap-1.5">
+      <TechBadge>MyBatis</TechBadge>
+      <TechBadge>Spring Data JPA</TechBadge>
+      <TechBadge>MySQL</TechBadge>
+      <TechBadge>MariaDB</TechBadge>
+      <TechBadge>PostgreSQL</TechBadge>
+      <TechBadge>MongoDB</TechBadge>
+      <TechBadge>Redis</TechBadge>
+    </div>
+  </section>
+  <hr className="my-4 border-border/60" />
 
-                  <hr className="w-full my-2 border-border/60" />
+  {/* Build */}
+  <section>
+    <h3 className="text-xs md:text-sm font-bold text-foreground mb-2">
+      Infra / DevOps
+    </h3>
+    <div className="flex flex-wrap gap-1.5">
+      <TechBadge>AWS</TechBadge>
+      <TechBadge>Docker</TechBadge>
+      <TechBadge>Git</TechBadge>
+    </div>
+  </section>
+  <hr className="my-4 border-border/60" />
 
-                  {/* Auth / Cache / VCS */}
-                  <TechBadge>Git</TechBadge>
-                  <TechBadge>Redis</TechBadge>
-                  <TechBadge>OAuth2</TechBadge>
+  {/* Communication */}
+  <section>
+    <h3 className="text-xs md:text-sm font-bold text-foreground mb-2">
+      Communication
+    </h3>
+    <div className="flex flex-wrap gap-1.5">
+      <TechBadge>REST API</TechBadge>
+      <TechBadge>WebSocket</TechBadge>
+    </div>
+  </section>
+</div>
 
-                  <hr className="w-full my-2 border-border/60" />
-
-                  {/* Database */}
-                  <TechBadge>MySQL</TechBadge>
-                  <TechBadge>MariaDB</TechBadge>
-                  <TechBadge>PostgreSQL</TechBadge>
-                  <TechBadge>MongoDB</TechBadge>
-
-                  <hr className="w-full my-2 border-border/60" />
-
-                  {/* API / Node */}
-                  <TechBadge>REST API</TechBadge>
-                  <TechBadge>Node.js</TechBadge>
-                  <TechBadge>Express.js</TechBadge>
-                </div>
               </div>
 
             </div>
