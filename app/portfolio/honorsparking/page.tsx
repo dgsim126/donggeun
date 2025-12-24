@@ -317,7 +317,7 @@ export default function HonorsParkingPage() {
               </div>
             </div>
 
-            <div className="border-l-4 border-blue-600 pl-6">
+            <div className="border-l-4 border-green-600 pl-6">
               <h3 className="text-xl font-semibold mb-4">Expo Push API 직접 호출 문제</h3>
 
               <div className="mb-6">
