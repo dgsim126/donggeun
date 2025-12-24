@@ -277,46 +277,54 @@ export default function HomePage() {
 >
 
           <div className="max-w-5xl mx-auto w-full">
+  {/* ✅ 2:3 비율 (학력 2칸, 경험 3칸) */}
+  <div className="grid gap-4 mb-4 md:grid-cols-5">
+    <div className="border-2 border-border rounded-xl p-4 bg-background/80 shadow-sm md:col-span-2">
+      <h3 className="text-sm md:text-base font-bold mb-3 text-foreground">학력</h3>
+      <div className="space-y-2 text-foreground leading-relaxed">
+        <div>
+          <p className="font-semibold text-xs md:text-sm">고려대학교 세종</p>
+          <p className="text-[11px] md:text-xs text-muted-foreground mt-0.5">컴퓨터융합소프트웨어학과</p>
+        </div>
+        <div className="pt-0.5">
+          <p className="text-[11px] md:text-xs text-muted-foreground">2019.03 ~ 2025.08</p>
+          <p className="text-[11px] md:text-xs font-medium mt-0.5">학점 3.9 / 4.5</p>
+        </div>
+      </div>
+    </div>
 
-            <div className="grid md:grid-cols-2 gap-4 mb-4">
-              <div className="border-2 border-border rounded-xl p-4 bg-background/80 shadow-sm">
-                <h3 className="text-sm md:text-base font-bold mb-3 text-foreground">학력</h3>
-                <div className="space-y-2 text-foreground leading-relaxed">
-                  <div>
-                    <p className="font-semibold text-xs md:text-sm">고려대학교 세종</p>
-                    <p className="text-[11px] md:text-xs text-muted-foreground mt-0.5">컴퓨터융합소프트웨어학과</p>
-                  </div>
-                  <div className="pt-0.5">
-                    <p className="text-[11px] md:text-xs text-muted-foreground">2019.03 ~ 2025.08</p>
-                    <p className="text-[11px] md:text-xs font-medium mt-0.5">학점 3.9 / 4.5</p>
-                  </div>
-                </div>
-              </div>
+    <div className="border-2 border-border rounded-xl p-4 bg-background/80 shadow-sm md:col-span-3">
+      <h3 className="text-sm md:text-base font-bold mb-3 text-foreground">경험·교육·활동</h3>
+      <div className="space-y-2 text-foreground leading-relaxed">
+        <div>
+          <p className="font-semibold text-[11px] md:text-xs">삼성소프트웨어아카데미(SSAFY) (2025.07~)</p>
+          <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
+            삼성소프트웨어아카데미 과정 수료 중
+          </p>
+        </div>
+        <div>
+          <p className="font-semibold text-[11px] md:text-xs">멋쟁이사자처럼 (2024.03~2024.12)</p>
+          <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
+            멋쟁이사자처럼 대학 12기 (백앤드)
+          </p>
+        </div>
+        <div>
+          <p className="font-semibold text-[11px] md:text-xs">언더독레볼루션 (2024.03~2024.12)</p>
+          <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
+            교내 개발 및 창업 동아리 언더독레볼루션 운영진
+          </p>
+        </div>
+        <div>
+          <p className="font-semibold text-[11px] md:text-xs">T-SUM(Tech Skill Up Mentoring) (2023.06~2023.08)</p>
+          <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
+            python을 활용한 데이터분석 및 인공지능 멘토링 프로그램
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-              <div className="border-2 border-border rounded-xl p-4 bg-background/80 shadow-sm">
-                <h3 className="text-sm md:text-base font-bold mb-3 text-foreground">경험·교육·활동</h3>
-                <div className="space-y-2 text-foreground leading-relaxed">
-                  <div>
-                    <p className="font-semibold text-[11px] md:text-xs">삼성소프트웨어아카데미(SSAFY) (2025.07~)</p>
-                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
-                      삼성소프트웨어아카데미 과정 수료 중
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-[11px] md:text-xs">멋쟁이사자처럼 (2024.03~2024.12)</p>
-                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
-                      멋쟁이사자처럼 대학 12기 (백앤드)
-                    </p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-[11px] md:text-xs">언더독레볼루션 (2024.03~2024.12)</p>
-                    <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
-                      교내 개발 및 창업 동아리 언더독레볼루션 운영진
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+
 
             {/* 자격·어학·수상 */}
             <div className="border-2 border-border rounded-xl p-4 bg-background/80 shadow-sm">
