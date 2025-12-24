@@ -248,11 +248,9 @@ export default function HonorsParkingPage() {
               </div>
 
               <div className="mb-6">
-                <h4 className="text-lg font-bold mb-4 text-blue-600">Solution</h4>
+                <h4 className="text-lg font-bold mb-4 text-blue-600">Solution: 새로운 커스텀 로그인 API 추가 (세션 로그인)</h4>
                 <div className="space-y-4">
-                  <p className="mt-5 font-semibold text-foreground">
-                  새로운 커스텀 로그인 API 추가 (세션 로그인)
-                  </p>
+                  
                   <div className="border rounded-lg p-4 bg-card">
                     <p className="font-semibold mb-2">1. OAuth2 로그인 요청 시 서버에 생성된 sessionId를 암호화하여 클라이언트에게 전달</p>
                     <p className="text-sm text-muted-foreground">
@@ -334,7 +332,7 @@ export default function HonorsParkingPage() {
               </div>
 
               <div className="mb-6">
-                <h4 className="text-lg font-bold mb-4 text-blue-600">Solution</h4>
+                <h4 className="text-lg font-bold mb-4 text-blue-600">Solution: Redis 기반 메시지 큐를 도입해 외부 API 호출을 비동기 처리</h4>
                 <div className="space-y-4">
                   <div className="border rounded-lg p-4 bg-card">
                     <p className="font-semibold mb-2">1. 데이터 삽입과 Expo Push API 호출 분리</p>
