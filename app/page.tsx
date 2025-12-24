@@ -4,6 +4,7 @@ import { ProjectCard } from "@/components/project-card"
 import { TechBadge } from "@/components/tech-badge"
 import { Navigation } from "@/components/navigation"
 import { LuMail, LuPhone, LuMapPin, LuGithub } from "react-icons/lu"
+import Link from "next/link"
 
 export default function HomePage() {
   return (
@@ -144,6 +145,12 @@ export default function HomePage() {
                   </p>
                 </div>
 
+                <Link
+                  href="https://github.com/dgsim126"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
                 <div
                   className="group rounded-xl border border-border bg-background/70 p-4 text-center hover:bg-background transition overflow-hidden"
                   title="github.com/dgsim126"
@@ -152,6 +159,7 @@ export default function HomePage() {
                   <p className="text-[11px] md:text-xs font-semibold">GitHub</p>
                   <p className="mt-1 text-[10px] md:text-[11px] text-muted-foreground truncate">github.com/dgsim126</p>
                 </div>
+                </Link>
               </div>
             </div>
           </div>
@@ -214,7 +222,9 @@ export default function HomePage() {
 
               <div>
                 <h3 className="text-xs md:text-sm font-bold mb-2 text-foreground">기술 스택</h3>
+
                 <div className="flex flex-wrap gap-1.5">
+                  {/* Backend / Java */}
                   <TechBadge>JAVA</TechBadge>
                   <TechBadge>Spring Boot</TechBadge>
                   <TechBadge>Spring Security</TechBadge>
@@ -225,37 +235,47 @@ export default function HomePage() {
                   <TechBadge>MyBatis</TechBadge>
                   <TechBadge>Spring Data JPA</TechBadge>
 
-                  <div className="w-full" />
+                  <hr className="w-full my-2 border-border/60" />
+
+                  {/* Infra */}
                   <TechBadge>amazon AWS</TechBadge>
                   <TechBadge>Docker</TechBadge>
                   <TechBadge>WebSocket</TechBadge>
 
-                  <div className="w-full" />
+                  <hr className="w-full my-2 border-border/60" />
+
+                  {/* Auth / Cache / VCS */}
                   <TechBadge>Git</TechBadge>
                   <TechBadge>Redis</TechBadge>
                   <TechBadge>OAuth2</TechBadge>
 
-                  <div className="w-full" />
+                  <hr className="w-full my-2 border-border/60" />
+
+                  {/* Database */}
                   <TechBadge>MySQL</TechBadge>
                   <TechBadge>MariaDB</TechBadge>
                   <TechBadge>PostgreSQL</TechBadge>
                   <TechBadge>MongoDB</TechBadge>
 
-                  <div className="w-full" />
+                  <hr className="w-full my-2 border-border/60" />
+
+                  {/* API / Node */}
                   <TechBadge>REST API</TechBadge>
                   <TechBadge>Node.js</TechBadge>
                   <TechBadge>Express.js</TechBadge>
                 </div>
               </div>
+
             </div>
           </div>
         </section>
 
         {/* Page 4: 정보 */}
         <section
-          id="info"
-          className="scroll-mt-12 sm:scroll-mt-14 min-h-[calc(100svh-3.5rem)] flex items-center px-6 sm:px-8 lg:px-12 py-8 bg-secondary/30"
-        >
+  id="info"
+  className="vh-section scroll-mt-12 sm:scroll-mt-14 px-6 sm:px-8 lg:px-12 py-8 bg-secondary/30"
+>
+
           <div className="max-w-5xl mx-auto w-full">
 
             <div className="grid md:grid-cols-2 gap-4 mb-4">
@@ -283,13 +303,13 @@ export default function HomePage() {
                     </p>
                   </div>
                   <div>
-                    <p className="font-semibold text-[11px] md:text-xs">멋쟁이사자처럼(2024.03~2024.12) 동아리</p>
+                    <p className="font-semibold text-[11px] md:text-xs">멋쟁이사자처럼 (2024.03~2024.12)</p>
                     <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
                       멋쟁이사자처럼 대학 12기 (백앤드)
                     </p>
                   </div>
                   <div>
-                    <p className="font-semibold text-[11px] md:text-xs">언더독레볼루션(2024.03~2024.12) 동아리</p>
+                    <p className="font-semibold text-[11px] md:text-xs">언더독레볼루션 (2024.03~2024.12)</p>
                     <p className="text-muted-foreground text-[10px] md:text-[11px] mt-0.5">
                       교내 개발 및 창업 동아리 언더독레볼루션 운영진
                     </p>
@@ -411,6 +431,7 @@ export default function HomePage() {
               />
             </div>
 
+
             <div className="space-y-5">
               <div className="border-2 border-border rounded-xl p-4 flex flex-col md:flex-row gap-4 bg-background shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex-1">
@@ -449,6 +470,7 @@ export default function HomePage() {
                   />
                 </div>
               </div>
+            
 
               <div className="border-2 border-border rounded-xl p-4 flex flex-col md:flex-row gap-4 bg-background shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex-1">
