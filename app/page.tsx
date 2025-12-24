@@ -445,8 +445,8 @@ export default function HomePage() {
                 <div className="flex-1">
                   <h3 className="text-base md:text-lg font-bold mb-1.5">모여봐요 | 일정 잡기 서비스</h3>
                   <p className="text-muted-foreground mb-3 leading-relaxed text-[11px] md:text-xs">
-                    다수 인원의 가능한 시간을 취합해 일정을 조율하는 웹 기반 일정 조율 서비스입니다. 사용자의 일정 입력을
-                    자동으로 계산하여 최적의 모임 시간을 계산합니다.
+                    다수 인원의 가능한 시간을 취합해 일정을 조율하는 웹 기반 일정 조율 서비스입니다.<br/> 
+                    사용자의 일정 입력을 자동으로 계산하여 최적의 모임 시간을 계산합니다.
                   </p>
                   <div className="text-[10px] md:text-[11px] space-y-1">
                     <p>
@@ -485,7 +485,7 @@ export default function HomePage() {
                   <h3 className="text-base md:text-lg font-bold mb-1.5">My Job Calendar | 취업 일정 관리 달력</h3>
                   <p className="text-muted-foreground mb-3 leading-relaxed text-[11px] md:text-xs">
                     채용공고, 기업정보, 정부 및 공공기관의 학생 지원 프로그램 등을 달력 기반으로 한눈에 확인할 수 있는 취업
-                    일정 관리 서비스입니다. 사용자의 관심 기업 및 채용 일정을 달력 형태로 관리하도록 설계했습니다.
+                    일정 관리 서비스입니다.<br/>  사용자의 관심 기업 및 채용 일정을 달력 형태로 관리하도록 설계했습니다.
                   </p>
                   <div className="text-[10px] md:text-[11px] space-y-1">
                     <p>
@@ -521,7 +521,7 @@ export default function HomePage() {
                 <div className="flex-1">
                   <h3 className="text-base md:text-lg font-bold mb-1.5">UniWeb | 교육용 웹 게임 서비스</h3>
                   <p className="text-muted-foreground mb-3 leading-relaxed text-[11px] md:text-xs">
-                    사용자가 원하는 문제와 정답을 입력하면 해당 내용을 바탕으로 게임이 생성됩니다. 이를 통해 교육용 웹 게임,
+                    사용자가 원하는 문제와 정답을 입력하면 해당 내용을 바탕으로 게임이 생성됩니다.<br/>  이를 통해 교육용 웹 게임,
                     혹은 개성있는 문제를 가진 게임을 생성할 수 있습니다.
                   </p>
                   <div className="text-[10px] md:text-[11px] space-y-1">
