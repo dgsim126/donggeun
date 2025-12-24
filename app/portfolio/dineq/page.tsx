@@ -299,7 +299,7 @@ export default function DineQPage() {
               </div>
             </div>
 
-<div className="border-l-4 border-blue-600 pl-6 mb-8">
+<div className="border-l-4 border-green-600 pl-6 mb-8">
   <h3 className="text-xl font-semibold mb-4">
     주문 처리 구조에서 발생한 실시간성 및 서버 부하 문제
   </h3>
