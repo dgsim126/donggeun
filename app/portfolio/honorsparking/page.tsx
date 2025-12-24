@@ -239,9 +239,8 @@ export default function HonorsParkingPage() {
                   모바일 앱(WebView) 환경에서 OAuth2 소셜 로그인을 진행하면 로그인 이후 다음과 같은 문제가 발생했습니다:
                 </p>
                 <ul className="space-y-2 text-muted-foreground ml-4">
-                  <li>• OAuth2 로그인 이후 클라이언트에게 쿠키가 전달되지 않음(session 전달이 불가)</li>
                   <li>• Google, Naver, Kako에서 WebView에서의 OAuth2 로그인 요청을 신뢰하지 않음 (공식 가이드 금지)</li>
-                  <li>• OAuth 로그인 후 redirection-uri가 WebView에서 제대로 동작하지 않거나, 앱이 결과를 받지 못함</li>
+                  <li>• OAuth2 로그인 이후 클라이언트에게 쿠키가 전달되지 않음 (session 전달 불가)</li>
                 </ul>
                 <p className="mt-4 font-semibold text-foreground">
                   "즉, OAuth2 로그인 성공 시점에 서버에 세션은 생기는데 WebView는 쿠키를 못 받는 문제가 발생"
@@ -251,8 +250,11 @@ export default function HonorsParkingPage() {
               <div className="mb-6">
                 <h4 className="text-lg font-bold mb-4 text-blue-600">Solution</h4>
                 <div className="space-y-4">
+                  <p className="mt-5 font-semibold text-foreground">
+                  새로운 커스텀 로그인 API 추가 (세션 로그인)
+                  </p>
                   <div className="border rounded-lg p-4 bg-card">
-                    <p className="font-semibold mb-2">1. WebView 환경인 경우, OAuth2 로그인 성공 시 서버에 생성된 sessionId를 암호화하여 클라이언트에게 전달</p>
+                    <p className="font-semibold mb-2">1. OAuth2 로그인 요청 시 서버에 생성된 sessionId를 암호화하여 클라이언트에게 전달</p>
                     <p className="text-sm text-muted-foreground">
                       <ul className="text-sm text-muted-foreground space-y-1">
                       <li>• OAuth2 로그인 완료 후 사용자 principal 정보를 기반으로 서버가 세션 ID를 직접 생성하고 Redis에
@@ -265,18 +267,28 @@ export default function HonorsParkingPage() {
                   </div>
 
                   <div className="border rounded-lg p-4 bg-card">
-                    <p className="font-semibold mb-2">2. [커스텀 로그인 API 호출] 전달받은 암호화된 sessionId를 활용하여 다시 서버에게 해당 sessionId를 전달</p>
+                    <p className="font-semibold mb-2">2. [커스텀 로그인 API 호출] : 다시 서버에게 해당 sessionId를 전달</p>
                     <p className="text-sm text-muted-foreground">
                       <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• 서버는 전달받은 sesssionId를 복호화</li>
-                      <li>• Redis(session 저장소)에 해당 세션 존재 여부를 검증</li>
+                      <li>• 전달받은 암호화된 sessionId를 서버에 전달</li>
                     
                     </ul>
                     </p>
                   </div>
 
                   <div className="border rounded-lg p-4 bg-card">
-                    <p className="font-semibold mb-2">3. 기존 세션을 지우고, 새 세션에 인증을 다시 심기 (세션 회수/ 재발급) </p>
+                    <p className="font-semibold mb-2">3. 전달받은 sessionId가 세션 스토리지에 존재하는지 확인</p>
+                    <p className="text-sm text-muted-foreground">
+                      <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• 서버는 전달받은 sesssionId를 복호화</li>
+                      <li>• Redis(세션 스토리지)에 해당 세션이 존재하는지 검증</li>
+                    
+                    </ul>
+                    </p>
+                  </div>
+
+                  <div className="border rounded-lg p-4 bg-card">
+                    <p className="font-semibold mb-2">4. 기존 세션 회수 및 새 세션 재발급 </p>
                     <p className="text-sm text-muted-foreground">
                       <ul className="text-sm text-muted-foreground space-y-1">
                       <li>• 처음 OAuth2로 만들어졌던 기존 세션을 폐기</li>
@@ -287,7 +299,7 @@ export default function HonorsParkingPage() {
                   </div>
 
                   <div className="border rounded-lg p-4 bg-card">
-                    <p className="font-semibold mb-2">4. 새 세션이 만들어졌기에 클라이언트에게 쿠키 전달 </p>
+                    <p className="font-semibold mb-2">5. 클라이언트에게 쿠키(세션) 전달 </p>
                     <p className="text-sm text-muted-foreground">
                       <ul className="text-sm text-muted-foreground space-y-1">
                       <li>• 새 세션이 만들어졌기에 서블릿 컨테이너가 응답에 자동으로 쿠키를 내려줌</li>
