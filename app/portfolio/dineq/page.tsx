@@ -298,6 +298,101 @@ export default function DineQPage() {
                 </ul>
               </div>
             </div>
+
+<div className="border-l-4 border-blue-600 pl-6 mb-8">
+  <h3 className="text-xl font-semibold mb-4">
+    주문 처리 구조에서 발생한 실시간성 및 서버 부하 문제
+  </h3>
+
+  {/* Problem */}
+  <div className="mb-6">
+    <h4 className="text-lg font-bold mb-3 text-red-600">Problem</h4>
+    <p className="text-muted-foreground mb-3 leading-relaxed">
+      초기 주문 시스템에서는 주방 주문 화면에서 새로운 주문 여부를 확인하기 위해
+      다음과 같은 방식으로 동작했습니다 :
+    </p>
+
+    <div className="bg-muted p-4 rounded-lg mb-3">
+      <code>GET /api/v1/orders (5초 주기 폴링)</code>
+    </div>
+
+    <p className="text-muted-foreground mb-2">
+      이 방식은 다음과 같은 문제를 야기했습니다 :
+    </p>
+    <ul className="space-y-2 text-muted-foreground ml-4">
+      <li>• 새로운 주문이 없어도 5초마다 반복적인 API 요청 발생</li>
+      <li>• 주문량 증가 시 불필요한 트래픽으로 서버 부하 증가 가능성</li>
+      <li>• 주문 생성 직후에도 최대 5초의 지연 발생</li>
+      <li>• 실시간 처리가 중요한 주방 환경에서 즉각적인 반응성 부족</li>
+    </ul>
+
+    <p className="mt-4 font-semibold text-foreground">
+      "Polling 기반 구조는 실서비스 환경에서 실시간성과 효율성 모두에 한계가 존재"
+    </p>
+  </div>
+
+  {/* Solution */}
+  <div className="mb-6">
+    <h4 className="text-lg font-bold mb-4 text-blue-600">
+      Solution: WebSocket 기반 실시간 주문 알림 구조 도입
+    </h4>
+
+    <div className="space-y-4">
+      <div className="border rounded-lg p-4 bg-card">
+        <p className="font-semibold mb-2">1. Polling 방식 제거</p>
+        <p className="text-sm text-muted-foreground">
+          주방 화면에서 주기적으로 주문 목록을 조회하던 GET 요청을 제거하고,
+          서버가 이벤트 발생 시 즉시 알림을 전달하는 구조로 전환
+        </p>
+      </div>
+
+      <div className="border rounded-lg p-4 bg-card">
+        <p className="font-semibold mb-2">
+          2. WebSocket 연결 수립 (STOMP 기반 실시간 메시징 구성)
+        </p>
+        <ul className="text-sm text-muted-foreground space-y-1">
+          <li>• Spring WebSocket + STOMP 기반으로 연결 구성</li>
+          <li>• /ws 엔드포인트로 연결하고 /topic 구독 구조로 이벤트 수신</li>
+        </ul>
+      </div>
+
+      <div className="border rounded-lg p-4 bg-card">
+        <p className="font-semibold mb-2">
+          3. 주문 이벤트 발생 시 서버에서 즉시 알림 전송
+        </p>
+        <p className="text-sm text-muted-foreground mb-2">
+          주문 생성, 주문 상태 변경 등 DB 트랜잭션이 발생하는 서비스 메서드에서
+          WebSocket 알림을 직접 전송하도록 설계
+        </p>
+        <div className="bg-muted p-3 rounded">
+          <code>invalidSender.sendAlert()</code>
+        </div>
+      </div>
+
+      <div className="border rounded-lg p-4 bg-card">
+        <p className="font-semibold mb-2">4. 클라이언트 즉시 반영</p>
+        <ul className="text-sm text-muted-foreground space-y-1">
+          <li>• 주방 화면에서 WebSocket 메시지 수신</li>
+          <li>• 신규 주문 또는 상태 변경 즉시 UI 갱신</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  {/* Result */}
+  <div>
+    <h4 className="text-lg font-bold mb-3 text-green-600">Result</h4>
+    <ul className="space-y-2 text-muted-foreground">
+      <li>✓ 불필요한 주기적 API 호출 제거로 서버 부하 감소</li>
+      <li>✓ 주문 생성/변경 즉시 주방 화면에 반영되는 실시간 처리 구현</li>
+      <li>✓ 주문 지연 체감 제거로 주방 운영 효율 개선</li>
+      <li>✓ 이벤트 기반 아키텍처 설계 경험 확보</li>
+      <li>✓ 실서비스 환경에서 WebSocket 적용 및 운영 경험 축적</li>
+    </ul>
+  </div>
+</div>
+
+            
           </section>
         </div>
       </main>
