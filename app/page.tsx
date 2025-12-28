@@ -166,129 +166,161 @@ export default function HomePage() {
         </section>
 
         {/* Page 3: 역량 */}
-        <section
-          id="capabilities"
-          className="vh-section scroll-mt-12 sm:scroll-mt-14 px-6 sm:px-8 lg:px-12 py-8 bg-background"
-        >
-          <div className="max-w-5xl mx-auto w-full">
-            <div className="grid lg:grid-cols-[1fr_320px] gap-6 lg:gap-10">
-              <div className="space-y-3">
-                <div>
-                  <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">[실서비스 운영 경험]</h3>
-                  <ul className="space-y-0.5 text-[11px] md:text-xs text-foreground/90 leading-relaxed">
-                    <li>
-                      - 실제 주점에서 운영되는 QR 테이블 주문 서비스 개발 및 유지보수 (누적 2,000건 이상 주문 처리, 현재
-                      운영 중)
-                    </li>
-                    <li>- 실제 주차장 운영 환경을 기준으로 한 실서비스 연동형 시스템 개발</li>
-                  </ul>
-                </div>
+<section
+  id="capabilities"
+  className="vh-section scroll-mt-12 sm:scroll-mt-14 px-6 sm:px-8 lg:px-12 py-8 bg-background"
+>
+  <div className="max-w-5xl mx-auto w-full">
+    <div className="grid lg:grid-cols-[1fr_320px] gap-6 lg:gap-10">
+      <div className="space-y-3">
+        <div>
+          <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">
+            [실서비스 운영 경험]
+          </h3>
+          <ul className="space-y-0.5 text-[11px] md:text-xs text-foreground/90 leading-relaxed">
+            <li>
+              - 실제 주점에서 운영되는 QR 테이블 주문 서비스 개발 및 유지보수 (누적 2,000건 이상 주문 처리, 현재 운영 중)
+            </li>
+            <li>- 실제 주차장 운영 환경을 기준으로 한 실서비스 연동형 시스템 개발</li>
+          </ul>
+        </div>
 
-                <div>
-                  <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">[백앤드 아키텍처 및 인증]</h3>
-                  <ul className="space-y-0.5 text-[11px] md:text-xs text-foreground/90 leading-relaxed">
-                    <li>- Spring Security + OAuth2 + Redis 기반 인증 구조 개발</li>
-                    <li>- WebView 환경의 로그인 이슈 해결을 위한 세션ID 기반 커스텀 인증 로직 개발</li>
-                    <li>- 외부 시스템과 연동되는 환경에서 트랜잭션 처리 및 데이터 정합성 확보</li>
-                  </ul>
-                </div>
+        <div>
+          <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">
+            [백엔드 아키텍처 및 인증]
+          </h3>
+          <ul className="space-y-0.5 text-[11px] md:text-xs text-foreground/90 leading-relaxed">
+            <li>- Spring Security + OAuth2 + Redis 기반 인증 구조 개발</li>
+            <li>- WebView 환경의 로그인 이슈 해결을 위한 세션ID 기반 커스텀 인증 로직 개발</li>
+            <li>- 외부 시스템과 연동되는 환경에서 트랜잭션 처리 및 데이터 정합성 확보</li>
+          </ul>
+        </div>
 
-                <div>
-                  <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">[실시간 처리 및 서버 성능 최적화]</h3>
-                  <ul className="space-y-0.5 text-[11px] md:text-xs text-foreground/90 leading-relaxed">
-                    <li>- Redis 큐를 활용한 비동기 알림 전송 구조 구현으로 서버 부하 감소</li>
-                    <li>- 웹소켓을 활용한 실시간 데이터 수신·처리 구조 설계</li>
-                  </ul>
-                </div>
+        <div>
+          <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">
+            [실시간 처리 및 서버 성능 최적화]
+          </h3>
+          <ul className="space-y-0.5 text-[11px] md:text-xs text-foreground/90 leading-relaxed">
+            <li>- Redis 큐를 활용한 비동기 알림 전송 구조 구현으로 서버 부하 감소</li>
+            <li>- 웹소켓을 활용한 실시간 데이터 수신·처리 구조 설계</li>
+          </ul>
+        </div>
 
-                <div>
-                  <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">[API·도메인 설계 및 데이터 처리]</h3>
-                  <ul className="space-y-0.5 text-[11px] md:text-xs text-foreground/90 leading-relaxed">
-                    <li>- QR 테이블 오더, 주차 관리, 일정 관리 등 여러 서비스의 REST API 설계 및 구현</li>
-                    <li>- @Entity 기반 JPA 도메인 모델링 및 연관관계 매핑</li>
-                    <li>- 외부 DB(주차장 운영사)와의 연동 구조 설계 및 데이터 동기화 처리</li>
-                    <li>- 외부 api 사용 경험</li>
-                  </ul>
-                </div>
+        <div>
+          <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">
+            [API·도메인 설계 및 데이터 처리]
+          </h3>
+          <ul className="space-y-0.5 text-[11px] md:text-xs text-foreground/90 leading-relaxed">
+            <li>- QR 테이블 오더, 주차 관리, 일정 관리 등 REST API 설계 및 구현</li>
+            <li>- @Entity 기반 JPA 도메인 모델링 및 연관관계 매핑</li>
+            <li>- 외부 DB(주차장 운영사)와의 연동 구조 설계 및 데이터 동기화 처리</li>
+            <li>- 외부 API 사용 경험</li>
+          </ul>
+        </div>
 
-                <div>
-                  <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">[문서화 및 협업]</h3>
-                  <ul className="space-y-0.5 text-[11px] md:text-xs text-foreground/90 leading-relaxed">
-                    <li>- Notion 기반의 요구사항 정의서, API 명세서, 일정표 등 문서화 체계 주도 구축</li>
-                    <li>- GitHub PR 기반의 코드리뷰·브랜치 전략 정립으로 협업 효율 향상</li>
-                  </ul>
-                </div>
-              </div>
+        {/* ✅ RPA 추가된 부분 */}
+        <div>
+          <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">
+            [자동화 · RPA]
+          </h3>
+          <ul className="space-y-0.5 text-[11px] md:text-xs text-foreground/90 leading-relaxed">
+            <li>- UiPath 기반으로 신고 변경 여부를 확인하는 간단한 자동화 프로세스 구현</li>
+            <li>- 실행 시점 상태와 이전 결과를 비교하여 변경 시에만 메일 발송</li>
+          </ul>
+        </div>
 
-              <div>
-                
+        
 
-<div className="space-y-6">
-  {/* Language */}
-  <section>
-    <h3 className="text-xs md:text-sm font-bold text-foreground mb-2">
-      Backend (Language, Framework)
-    </h3>
-    <div className="flex flex-wrap gap-1.5">
-      <TechBadge>JAVA</TechBadge>
-      <TechBadge>JSP</TechBadge>
-      <TechBadge>Servlet</TechBadge>
-      <TechBadge>Spring Boot</TechBadge>
-      <TechBadge>Spring Security</TechBadge>
-      <TechBadge>Node.js</TechBadge>
-      <TechBadge>Express.js</TechBadge>
-    </div>
-  </section>
-  <hr className="my-4 border-border/60" />
+        <div>
+          <h3 className="text-sm md:text-[15px] font-bold mb-1 text-foreground">
+            [문서화 및 협업]
+          </h3>
+          <ul className="space-y-0.5 text-[11px] md:text-xs text-foreground/90 leading-relaxed">
+            <li>- Notion 기반 요구사항 정의서, API 명세, 일정 관리 문서화 주도</li>
+            <li>- GitHub PR 기반 코드리뷰 및 브랜치 전략으로 협업 효율 향상</li>
+          </ul>
+        </div>
+      </div>
 
-
-  {/* Data Access */}
-  <section>
-    <h3 className="text-xs md:text-sm font-bold text-foreground mb-2">
-      Data (ORM, DB, Cache)
-    </h3>
-    <div className="flex flex-wrap gap-1.5">
-      <TechBadge>MyBatis</TechBadge>
-      <TechBadge>Spring Data JPA</TechBadge>
-      <TechBadge>MySQL</TechBadge>
-      <TechBadge>MariaDB</TechBadge>
-      <TechBadge>PostgreSQL</TechBadge>
-      <TechBadge>MongoDB</TechBadge>
-      <TechBadge>Redis</TechBadge>
-    </div>
-  </section>
-  <hr className="my-4 border-border/60" />
-
-  {/* Build */}
-  <section>
-    <h3 className="text-xs md:text-sm font-bold text-foreground mb-2">
-      Infra / DevOps
-    </h3>
-    <div className="flex flex-wrap gap-1.5">
-      <TechBadge>AWS</TechBadge>
-      <TechBadge>Docker</TechBadge>
-      <TechBadge>Git</TechBadge>
-    </div>
-  </section>
-  <hr className="my-4 border-border/60" />
-
-  {/* Communication */}
-  <section>
-    <h3 className="text-xs md:text-sm font-bold text-foreground mb-2">
-      Communication
-    </h3>
-    <div className="flex flex-wrap gap-1.5">
-      <TechBadge>REST API</TechBadge>
-      <TechBadge>WebSocket</TechBadge>
-    </div>
-  </section>
-</div>
-
-              </div>
-
+      {/* 오른쪽 기술 스택 */}
+      <div>
+        <div className="space-y-6">
+          <section>
+            <h3 className="text-xs md:text-sm font-bold text-foreground mb-2">
+              Backend (Language, Framework)
+            </h3>
+            <div className="flex flex-wrap gap-1.5">
+              <TechBadge>JAVA</TechBadge>
+              <TechBadge>JSP</TechBadge>
+              <TechBadge>Servlet</TechBadge>
+              <TechBadge>Spring Boot</TechBadge>
+              <TechBadge>Spring Security</TechBadge>
+              <TechBadge>Node.js</TechBadge>
+              <TechBadge>Express.js</TechBadge>
             </div>
-          </div>
-        </section>
+          </section>
+
+          <hr className="my-4 border-border/60" />
+
+          <section>
+            <h3 className="text-xs md:text-sm font-bold text-foreground mb-2">
+              Data (ORM, DB, Cache)
+            </h3>
+            <div className="flex flex-wrap gap-1.5">
+              <TechBadge>MyBatis</TechBadge>
+              <TechBadge>Spring Data JPA</TechBadge>
+              <TechBadge>MySQL</TechBadge>
+              <TechBadge>MariaDB</TechBadge>
+              <TechBadge>PostgreSQL</TechBadge>
+              <TechBadge>MongoDB</TechBadge>
+              <TechBadge>Redis</TechBadge>
+            </div>
+          </section>
+
+          <hr className="my-4 border-border/60" />
+
+          <section>
+            <h3 className="text-xs md:text-sm font-bold text-foreground mb-2">
+              Infra / DevOps
+            </h3>
+            <div className="flex flex-wrap gap-1.5">
+              <TechBadge>AWS</TechBadge>
+              <TechBadge>Docker</TechBadge>
+              <TechBadge>Git</TechBadge>
+            </div>
+          </section>
+
+          <hr className="my-4 border-border/60" />
+
+          <section>
+            <h3 className="text-xs md:text-sm font-bold text-foreground mb-2">
+              Automation / RPA
+            </h3>
+            <div className="flex flex-wrap gap-1.5">
+              <TechBadge>UiPath</TechBadge>
+              <TechBadge>RPA</TechBadge>
+              <TechBadge>File Activity</TechBadge>
+              <TechBadge>Outlook Mail</TechBadge>
+            </div>
+          </section>
+
+          <hr className="my-4 border-border/60" />
+
+          <section>
+            <h3 className="text-xs md:text-sm font-bold text-foreground mb-2">
+              Communication
+            </h3>
+            <div className="flex flex-wrap gap-1.5">
+              <TechBadge>REST API</TechBadge>
+              <TechBadge>WebSocket</TechBadge>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
         {/* Page 4: 정보 */}
         <section
@@ -537,11 +569,6 @@ export default function HomePage() {
                 </div>
               </Link>
             </div>
-
-
-  
-
-
 
             <div className="space-y-5">
               <div className="border-2 border-border rounded-xl p-4 flex flex-col md:flex-row gap-4 bg-background shadow-sm hover:shadow-md transition-shadow">

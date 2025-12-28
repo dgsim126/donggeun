@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { PortfolioNavigation } from "@/components/portfolio-navigation"
+import { UiPathNavigation } from "@/components/uipath-navigation"
 import { useEffect } from "react"
 
 export default function UiPathPage() {
@@ -11,7 +11,8 @@ export default function UiPathPage() {
 
   return (
     <div className="page-zoom">
-      <PortfolioNavigation />
+      <UiPathNavigation />
+
 
       <main className="min-h-screen bg-background pt-14">
         <div className="max-w-5xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -20,6 +21,7 @@ export default function UiPathPage() {
           </Link>
 
           {/* SECTION 1: HERO / OVERVIEW */}
+          <section id="service" className="scroll-mt-20">
           <div className="grid md:grid-cols-3 gap-6 mb-10 bg-white p-6 sm:p-8 rounded-lg">
             <div className="md:col-span-2">
               <h1 className="text-3xl sm:text-4xl font-bold mb-3">UiPath</h1>
@@ -63,6 +65,7 @@ export default function UiPathPage() {
               </div>
             </div>
           </div>
+          </section>
 
           {/* SECTION 2: PROJECT OVERVIEW */}
           <section id="overview" className="mb-10 bg-gray-50 p-6 sm:p-8 rounded-lg scroll-mt-16">
