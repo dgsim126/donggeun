@@ -458,6 +458,89 @@ export default function HomePage() {
                 imageAlt="HonorsParking 프로젝트 이미지"
               />
             </div>
+            
+            <div className="space-y-5">
+              <Link
+                href="/portfolio/uipath"
+                className="
+                  block
+                  text-foreground
+                  no-underline
+                  hover:no-underline
+                  focus:no-underline
+                  rounded-xl
+                  focus:outline-none
+                  focus-visible:ring-2
+                  focus-visible:ring-blue-500
+                  mb-5
+                "
+              >
+                <div
+                  className="
+                    border-2 border-border rounded-xl p-4
+                    flex flex-col md:flex-row gap-4
+                    bg-background
+                    transition-all duration-200
+                    hover:-translate-y-1
+                    hover:shadow-lg
+                    hover:border-blue-400
+                    hover:bg-secondary/20
+                  "
+                >
+                  {/* 텍스트 영역 */}
+                  <div className="flex-1 text-foreground">
+                    <h3 className="text-base md:text-lg font-bold mb-1.5 text-foreground">
+                      UiPath | 신고 발생 시 자동 메일 발송 RPA
+                    </h3>
+
+                    <p className="mb-3 leading-relaxed text-[11px] md:text-xs text-foreground/80">
+                      신고 내역 변경 여부를 감지해, 변경 발생 시에만 담당자에게 이메일을 자동 발송하는 RPA 자동화 시스템입니다.<br />
+                      UiPath 기반 RPA로 반복적인 확인·알림 업무를 자동화하여 운영 효율을 개선했습니다.
+                    </p>
+
+                    {/* 정보 영역 */}
+                    <div className="text-[10px] md:text-[11px] space-y-1 text-foreground/80">
+                      <p>
+                        <span className="font-medium text-foreground">기간:</span>{" "}
+                        2025.01 ~ 2025.02
+                      </p>
+                      <p>
+                        <span className="font-medium text-foreground">기술:</span>{" "}
+                        UiPath, Outlook Mail, File System, 조건 분기
+                      </p>
+                      <p>
+                        
+                        <span
+                          className="
+                            text-blue-500
+                            font-semibold
+                            text-[12px] md:text-sm
+                            hover:text-red-600
+                            transition-colors
+                          "
+                        >
+                          " 클릭하여 상세내용을 확인하세요 "
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* 이미지 */}
+                  <div className="w-full md:w-36 h-36 rounded-lg overflow-hidden border border-border flex-shrink-0 bg-muted">
+                    <img
+                      src="/images/uipath/title.png"
+                      alt="UiPath RPA 프로젝트 이미지"
+                      className="w-full h-full object-cover object-top"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+
+  
+
 
 
             <div className="space-y-5">
