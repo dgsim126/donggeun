@@ -230,92 +230,68 @@ export default function HonorsParkingPage() {
           <section id="challenges" className="mb-12 bg-white p-8 rounded-lg scroll-mt-16">
             <h2 className="text-2xl font-bold mb-6">문제 및 해결</h2>
 
-            <div className="border-l-4 border-blue-600 pl-6 mb-12">
-              <h3 className="text-xl font-semibold mb-4">WebView 환경에서 OAuth2 세션 공유 문제</h3>
+<div className="border-l-4 border-blue-600 pl-6 mb-12">
+  <h3 className="text-xl font-semibold mb-4">WebView 환경에서 OAuth2 로그인 후 인증 유지 문제 (Google, Kakao, Naver)</h3>
 
-              <div className="mb-6">
-                <h4 className="text-lg font-bold mb-3 text-red-600">Problem</h4>
-                <p className="text-muted-foreground mb-3 leading-relaxed">
-                  모바일 앱(WebView) 환경에서 OAuth2 소셜 로그인을 진행하면 로그인 이후 다음과 같은 문제가 발생했습니다:
-                </p>
-                <ul className="space-y-2 text-muted-foreground ml-4">
-                  <li>• Google, Naver, Kako에서 WebView에서의 OAuth2 로그인 요청을 신뢰하지 않음 (공식 가이드 금지)</li>
-                  <li>• OAuth2 로그인 이후 클라이언트에게 쿠키가 전달되지 않음 (session 전달 불가)</li>
-                </ul>
-                <p className="mt-4 font-semibold text-foreground">
-                  "즉, OAuth2 로그인 성공 시점에 서버에 세션은 생기는데 WebView는 쿠키를 못 받는 문제가 발생"
-                </p>
-              </div>
+  <div className="mb-6">
+    <h4 className="text-lg font-bold mb-3 text-red-600">Problem</h4>
+    <p className="text-muted-foreground mb-3 leading-relaxed">
+      모바일 앱(WebView) 환경에서 OAuth2 소셜 로그인을 진행하면 OAuth 인증 자체는 완료되지만, OAuth 제공자의 보안 정책으로 인해
+      WebView 환경에서는 인증 쿠키(세션)가 정상적으로 전달되지 않아 로그인 상태를 유지하기 어려운 문제가 발생했습니다.
+    </p>
+    <ul className="space-y-2 text-muted-foreground ml-4">
+      <li>• 일부 OAuth 제공자는 보안 정책상 WebView(Embedded Browser) 기반 로그인을 제한하거나 권장하지 않음</li>
+      <li>• OAuth 인증 완료 후에도 WebView로 인증 쿠키가 전달되지 않아, 이후 요청이 비인증 상태로 처리됨</li>
+    </ul>
+  </div>
 
-              <div className="mb-6">
-                <h4 className="text-lg font-bold mb-4 text-blue-600">Solution: 새로운 커스텀 로그인 API 추가 (세션 로그인)</h4>
-                <div className="space-y-4">
-                  
-                  <div className="border rounded-lg p-4 bg-card">
-                    <p className="font-semibold mb-2">1. OAuth2 로그인 요청 시 서버에 생성된 sessionId를 암호화하여 클라이언트에게 전달</p>
-                    <p className="text-sm text-muted-foreground">
-                      <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• OAuth2 로그인 완료 후 사용자 principal 정보를 기반으로 서버가 세션 ID를 직접 생성하고 Redis에
-                      저장</li>
-                      <li>• 해당 세션 ID를 WebView 앱으로 응답 반환</li>
-                    
-                    </ul>
+  <div className="mb-6">
+    <h4 className="text-lg font-bold mb-4 text-blue-600">Solution: 세션 ID 기반 커스텀 로그인 흐름 설계</h4>
 
-                    </p>
-                  </div>
+    <div className="space-y-4">
+      <div className="border rounded-lg p-4 bg-card">
+        <p className="font-semibold mb-2">1. OAuth2 로그인 성공 후 생성된 sessionId를 암호화하여 클라이언트에 전달</p>
+        <ul className="text-sm text-muted-foreground space-y-1">
+          <li>• OAuth2 성공 시점에 서버에서 세션이 생성되며, 해당 세션 ID를 암호화하여 응답으로 전달</li>
+          <li>• 세션 데이터는 Redis(Session Storage)에 저장된 상태</li>
+        </ul>
+      </div>
 
-                  <div className="border rounded-lg p-4 bg-card">
-                    <p className="font-semibold mb-2">2. [커스텀 로그인 API 호출] : 다시 서버에게 해당 sessionId를 전달</p>
-                    <p className="text-sm text-muted-foreground">
-                      <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• 전달받은 암호화된 sessionId를 서버에 전달</li>
-                    
-                    </ul>
-                    </p>
-                  </div>
+      <div className="border rounded-lg p-4 bg-card">
+        <p className="font-semibold mb-2">2. 커스텀 로그인 API로 암호화된 sessionId를 다시 서버에 전달</p>
+        <ul className="text-sm text-muted-foreground space-y-1">
+          <li>• WebView에서 쿠키 전달이 제한되는 점을 고려해, 별도의 로그인 API로 sessionId를 전달하도록 설계</li>
+        </ul>
+      </div>
 
-                  <div className="border rounded-lg p-4 bg-card">
-                    <p className="font-semibold mb-2">3. 전달받은 sessionId가 세션 스토리지에 존재하는지 확인</p>
-                    <p className="text-sm text-muted-foreground">
-                      <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• 서버는 전달받은 sesssionId를 복호화</li>
-                      <li>• Redis(세션 스토리지)에 해당 세션이 존재하는지 검증</li>
-                    
-                    </ul>
-                    </p>
-                  </div>
+      <div className="border rounded-lg p-4 bg-card">
+        <p className="font-semibold mb-2">3. Redis에서 기존 세션을 조회해 인증 정보(Authentication)를 확인</p>
+        <ul className="text-sm text-muted-foreground space-y-1">
+          <li>• 서버에서 sessionId를 복호화한 뒤 Redis 세션을 조회</li>
+          <li>• 세션에 저장된 SecurityContext(Authentication)를 검증해 유효한 사용자임을 확인</li>
+        </ul>
+      </div>
 
-                  <div className="border rounded-lg p-4 bg-card">
-                    <p className="font-semibold mb-2">4. 기존 세션 회수 및 새 세션 재발급 </p>
-                    <p className="text-sm text-muted-foreground">
-                      <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• 처음 OAuth2로 만들어졌던 기존 세션을 폐기</li>
-                      <li>• 기존 세션의 인증정보를 복원하여 새 세션으로 옮김</li>
-                    
-                    </ul>
-                    </p>
-                  </div>
+      <div className="border rounded-lg p-4 bg-card">
+        <p className="font-semibold mb-2">4. 기존 세션 무효화 후, 인증 정보를 새 세션에 재저장하여 쿠키 발급</p>
+        <ul className="text-sm text-muted-foreground space-y-1">
+          <li>• 기존 세션을 만료(삭제)하고, 검증된 인증 정보를 새 세션에 재설정</li>
+          <li>• 새 세션이 생성되면서 응답에 세션 쿠키가 포함되어 WebView에서도 로그인 상태 유지</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-                  <div className="border rounded-lg p-4 bg-card">
-                    <p className="font-semibold mb-2">5. 클라이언트에게 쿠키(세션) 전달 </p>
-                    <p className="text-sm text-muted-foreground">
-                      <ul className="text-sm text-muted-foreground space-y-1">
-                      <li>• 새 세션이 만들어졌기에 서블릿 컨테이너가 응답에 자동으로 쿠키를 내려줌</li>
-                    
-                    </ul>
-                    </p>
-                  </div>
-                </div>
-              </div>
+  <div>
+    <h4 className="text-lg font-bold mb-3 text-green-600">Result</h4>
+    <ul className="space-y-2 text-muted-foreground">
+      <li>✓ WebView 환경에서도 소셜 로그인 이후 인증 상태를 안정적으로 유지</li>
+      <li>✓ 웹/앱(WebView) 환경 차이로 인한 로그인 불안정 문제를 완화</li>
+    </ul>
+  </div>
+</div>
 
-              <div>
-                <h4 className="text-lg font-bold mb-3 text-green-600">Result</h4>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>✓ WebView 환경에서도 안정적인 소셜 로그인 구현</li>
-                  <li>✓ 웹 / 앱(WebView) 환경에 구애받지 않고 로그인 가능</li>
-                </ul>
-              </div>
-            </div>
+
 
             <div className="border-l-4 border-green-600 pl-6">
               <h3 className="text-xl font-semibold mb-4">Expo Push API 직접 호출 문제</h3>
@@ -323,42 +299,44 @@ export default function HonorsParkingPage() {
               <div className="mb-6">
                 <h4 className="text-lg font-bold mb-3 text-red-600">Problem</h4>
                 <p className="text-muted-foreground mb-3 leading-relaxed">
-                  입·출차 이벤트 발생 시 즉시 Expo Push API를 호출하던 기존 구조에서 다음과 같은 문제가 발생했습니다:
+                  입·출차 이벤트 발생 시 트랜잭션 내부에서 Expo Push API를 즉시 호출하던 기존 구조에서 다음과 같은 문제가
+                  발생했습니다:
                 </p>
                 <ul className="space-y-2 text-muted-foreground ml-4">
-                  <li>• DB에 값이 삽입되고 Expo 알림을 보내는 구조에서 Expo 서버의 응답 지연 문제 발생</li>
-                  <li>• @Transactional에 의해 문제없이 삽입된 데이터가 rollback되는 문제 발생</li>
+                  <li>• 외부 API 응답 지연으로 인해 요청 처리 시간이 길어지고 서버 부하가 증가</li>
+                  <li>• 외부 API 호출 실패(예외) 시 커밋 이전에 트랜잭션이 롤백되어 DB 저장까지 영향 발생</li>
                 </ul>
               </div>
 
               <div className="mb-6">
-                <h4 className="text-lg font-bold mb-4 text-blue-600">Solution: Redis 기반 메시지 큐를 도입해 외부 API 호출을 비동기 처리</h4>
+                <h4 className="text-lg font-bold mb-4 text-blue-600">
+                  Solution: Redis 기반 큐로 알림 요청을 분리하고 워커가 비동기 처리
+                </h4>
                 <div className="space-y-4">
                   <div className="border rounded-lg p-4 bg-card">
-                    <p className="font-semibold mb-2">1. 데이터 삽입과 Expo Push API 호출 분리</p>
-                    <p className="text-sm text-muted-foreground">
-                      {/* NotificationQueueItem 구조 정의. 회원 ID, 차량 번호, 알림 종류 등 핵심 정보만 큐에 저장  */}
-                      <p>• Expo Push API 호출을 DB 데이터 삽입과 비동기적으로 처리하도록 설계 변경</p>
-                      <p>• 데이터를 DB에 삽입한 후, Expo Push API 호출을 즉시 진행하지 않고, Redis 큐에 데이터를 추가하여 나중에 처리하도록 구조 변경</p>
-                    </p>
+                    <p className="font-semibold mb-2">1. 트랜잭션과 외부 API 호출 분리</p>
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• DB 저장 로직과 Expo Push API 호출을 동일 트랜잭션에서 분리</p>
+                      <p>• DB 저장 후 알림 요청은 즉시 호출하지 않고 Redis 큐에 적재하도록 변경</p>
+                    </div>
                   </div>
 
                   <div className="border rounded-lg p-4 bg-card">
-                    <p className="font-semibold mb-2">2. Redis 기반 메시지 큐 설계</p>
-                    <p className="text-sm text-muted-foreground">
-                      <p>• 데이터 삽입 후 즉시 ExpoPushService를 호출하지 않고, 이를 Redis 큐에 저장</p>
-                      <p>• Redis 큐에 저장된 알림 데이터를 백엔드 서버의 다른 프로세스가 처리하도록 설계</p>
-                      <p>• 이를 통해 동기적인 종속성을 제거하고, Expo Push API 호출이 지연되거나 실패하더라도 DB는 정상적으로 동작.</p>
-                    </p>
+                    <p className="font-semibold mb-2">2. Redis List 기반 메시지 큐 도입</p>
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• NotificationQueueItem 형태로 필요한 정보만 큐에 저장</p>
+                      <p>• 큐 적재(Producer)와 큐 소비(Consumer)를 분리해 동기 종속성 제거</p>
+                      <p>• 외부 API 지연/실패가 발생해도 DB 저장은 안정적으로 완료되도록 개선</p>
+                    </div>
                   </div>
 
                   <div className="border rounded-lg p-4 bg-card">
-                    <p className="font-semibold mb-2">3. RedisNotificationWorker 구현</p>
-                    <p className="text-sm text-muted-foreground">
-                      <p>• RedisNotificationWorker라는 별도의 워커 스레드를 구현하여 Redis 큐에서 데이터를 읽어 ExpoPushService를 호출하는 방식으로 처리</p>
-                      <p>• 워커는 큐에 쌓인 알림 요청을 순차적으로 처리하고, Expo 서버로 푸시 알림을 전송</p>
-                      <p>• API 호출 실패 시 큐에서 처리되지 않은 요청을 재시도할 수 있도록 추가적인 로직을 적용</p>
-                    </p>
+                    <p className="font-semibold mb-2">3. RedisNotificationWorker로 큐 소비 및 재시도 처리</p>
+                    <div className="text-sm text-muted-foreground space-y-1">
+                      <p>• @Scheduled 기반 워커 컴포넌트가 Redis 큐를 주기적으로 polling하여 알림 요청을 처리</p>
+                      <p>• 큐에서 데이터를 꺼내 ExpoPushService를 호출해 푸시 알림 전송</p>
+                      <p>• 실패 시 재시도 횟수를 관리하며 최대 3회까지 재처리</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -366,9 +344,9 @@ export default function HonorsParkingPage() {
               <div>
                 <h4 className="text-lg font-bold mb-3 text-green-600">Result</h4>
                 <ul className="space-y-2 text-muted-foreground">
-                  <li>✓ 대량 이벤트 상황(Expo server에서 많은 요청으로 인해 문제가 발생하는 상황)에서도 이와 상관없이 DB에 안정적으로 값 저장</li>
-                  <li>✓ 알림 전달 성공률 및 안정성 대폭 향상</li>
-                  <li>✓ 서버 전체 응답 속도 및 신뢰성 개선</li>
+                  <li>✓ 외부 API 지연/실패 상황에서도 DB 저장이 안정적으로 유지</li>
+                  <li>✓ 대량 이벤트 상황에서 알림 처리 안정성 및 성공률 향상</li>
+                  <li>✓ 요청 응답 지연 감소 및 서버 부하 완화</li>
                 </ul>
               </div>
             </div>
