@@ -534,7 +534,7 @@ export default function HomePage() {
                     <div className="text-[10px] md:text-[11px] space-y-1 text-foreground/80">
                       <p>
                         <span className="font-medium text-foreground">기간:</span>{" "}
-                        2025.01 ~ 2025.02
+                        2025.12
                       </p>
                       <p>
                         <span className="font-medium text-foreground">기술:</span>{" "}
